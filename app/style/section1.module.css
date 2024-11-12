@@ -6,8 +6,8 @@
   width: 100%;
 }
 .section1 {
-  margin-top: 3em;
-  padding: 1em 10em 1em 10em;
+  margin-top: 1em;
+  padding: 2em;
   background-color: #3883a2;
   width: 90%;
   border-radius: 30px;
@@ -22,7 +22,7 @@
   justify-content: start;
 }
 .titre {
-  font-size: 112px;
+  font-size: 100px;
   font-weight: bold;
   color: white;
 }
@@ -39,13 +39,8 @@
 }
 .right {
   display: flex;
-  height: 50vh;
-  background-position: right;
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 100%;
-
-  background-image: url(../../public/assets/ordinoir.svg);
+  width: 50%;
+  justify-content: center;
 }
 .promesse {
   margin-top: 1em;
@@ -54,6 +49,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 2.5rem;
 }
 .promesse1 {
   display: flex;
@@ -65,7 +61,7 @@
   display: flex;
 }
 .text {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: bold;
 }
 .cnt1,
@@ -86,18 +82,30 @@
     height: 30px;
     width: 30px;
   }
+  .text {
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 821px) {
   .titre {
-    font-size: 60px;
+    font-size: 40px;
+  }
+  .right {
+    height: 25vh;
+    width: 40%;
+    margin-right: 30px;
+    background-image: url(../../public/1372-samsung-galaxy-a55-5g-8-256gb-azul-libre-review-removebg-preview\ 2.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
   }
   .para {
     font-size: 30px;
   }
   .section1 {
-    padding: 1em;
-    
+    padding: 0.5;
+    height: 1%;
   }
   .text {
     font-size: 10px;
@@ -106,50 +114,68 @@
   .ctn2 {
     gap: 20px;
   }
-  .promesse1{
+  .promesse1 {
     width: 50%;
     gap: 10px;
+  }
+  .Image1 {
+    display: none;
   }
 }
 @media (max-width: 740px) {
   .titre {
-    font-size: 40px;
+    font-size: 18px;
   }
+
   .para {
-    font-size: 24px;
+    font-size: 16px;
   }
   .section1 {
-    padding: 1em;
+    padding: 2em;
     justify-content: center;
+    background-image: url(../../public/assets/1372-samsung-galaxy-a55-5g-8-256gb-azul-libre-review-removebg-preview\ 2.svg);
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+  .button {
+    width: 60%;
+    height: 20%;
+    font-size: 12px;
   }
   .right {
     display: none;
   }
+  .section1 {
+    justify-content: start;
+  }
   .left {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    justify-content: start;
+    align-items: start;
   }
   .cnt1,
   .cnt2 {
-    width: 50%;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     flex-direction: column;
     gap: 20px;
   }
+  .button {
+    font-size: 10px;
+  }
 
   .promesse1 {
     display: flex;
+    width: 100%;
     margin-left: 0px !important;
     margin-right: 0px !important;
     gap: 20px;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     display: flex;
   }
   .text {
-    font-size: 12px;
+    font-size: 10px;
   }
 }

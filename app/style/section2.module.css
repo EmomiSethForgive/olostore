@@ -1,0 +1,39 @@
+.card {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 2em;
+  width: 90%;
+  gap: 3em;
+  padding: 2em;
+  justify-content: start;
+  align-items: start;
+  background-color: rgb(102, 70, 70);
+}
+.button {
+  background-color: #3883a2;
+  width: 248px;
+  height: 35px;
+  border-radius: 20px;
+}
+
+.produit1{
+  display: flex;
+  background-color: #56b318;
+  width: 100%;
+  padding: 1em;
+  justify-content: space-around;
+}
+.produit2{
+  display: flex;
+  background-color: blue;
+  width: 100%;
+  padding: 1em;
+}

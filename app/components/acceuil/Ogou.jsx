@@ -6,8 +6,8 @@ export function Ogou(){
             className=" w-[90%] m-auto h-[30%] "
             src="../assets/ogou.svg"
             alt="log"
-            width={22}
-            height={22}
+            width={24}
+            height={24}
           />
         </div>
     )
