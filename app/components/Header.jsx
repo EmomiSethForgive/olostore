@@ -19,7 +19,7 @@ export function Header() {
         <input
             type="text"
             placeholder="Rechercher vos produits"
-            className="md:pl-4 pl-1 md:pr-32 md:py-2 py-1 pr-1 border rounded-md  focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="md:pl-4 pl-1 md:pr-32 md:py-2 py-1 pr-1 border rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           {/* <Image
             src="../assets/recherche.svg"

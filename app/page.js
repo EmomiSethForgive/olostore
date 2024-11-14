@@ -13,7 +13,7 @@ export default function Home() {
     <Header/>
     
     <Section1/>
-    <Cat />
+    
     <Section2 />
     {/* <Articles /> */}
     <Ogou />

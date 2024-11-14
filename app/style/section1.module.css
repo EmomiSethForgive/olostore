@@ -1,4 +1,4 @@
-.section {
+/* .section {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -6,10 +6,10 @@
   width: 100%;
 }
 .section1 {
-  margin-top: 1em;
+  margin-top: 2em;
   padding: 2em;
   background-color: #3883a2;
-  width: 90%;
+  width: 80%;
   border-radius: 30px;
   display: flex;
   justify-content: space-between;
@@ -44,7 +44,7 @@
 }
 .promesse {
   margin-top: 1em;
-  width: 90%;
+  width: 80%;
   border-radius: 30px;
   display: flex;
   justify-content: space-between;
@@ -71,9 +71,9 @@
   justify-content: space-between;
   align-items: center;
 }
-@media (max-width: 1221px) {
+@media (max-width: 1520px) {
   .titre {
-    font-size: 80px;
+    font-size: 50px;
   }
   .para {
     font-size: 50px;
@@ -87,9 +87,9 @@
   }
 }
 
-@media (max-width: 821px) {
+@media (max-width: 1205px) {
   .titre {
-    font-size: 40px;
+    font-size: 45px;
   }
   .right {
     height: 25vh;
@@ -101,7 +101,7 @@
     background-position: right;
   }
   .para {
-    font-size: 30px;
+    font-size: 40px;
   }
   .section1 {
     padding: 0.5;
@@ -178,4 +178,4 @@
   .text {
     font-size: 10px;
   }
-}
+} */
