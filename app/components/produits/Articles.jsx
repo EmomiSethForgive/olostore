@@ -6,7 +6,7 @@ export function Articles() {
     <div className="w-full ">
       <div class="flex flex-wrap items-center justify-center w-[90%] m-auto py-1 md:py-2 gap-8">
 
-        <div class="bg-[#3883A2] p-4 rounded-[20px] text-center w-[300px] h-[400px] hover:scale-105 transition-transform duration-300 shadow-lg">
+        <div class="bg-[#3883A2] p-4 rounded-[20px] text-center w-[300px] h-[400px] hover:scale-100 transition-transform duration-300 shadow-lg shadow-slate-400">
           <div>
             <img src="../assets/monte.svg" alt="Téléphone Samsung A55" class="w-30 h-60 " />
           </div>
