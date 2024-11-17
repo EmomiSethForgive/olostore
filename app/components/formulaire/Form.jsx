@@ -3,7 +3,7 @@ import { useSearchParams } from "next/navigation";
 
 
 
-export function Form() {
+export default function Form() {
   const searchParams = useSearchParams();
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
@@ -95,11 +95,115 @@ export function Form() {
         Formulaire de commande
       </h1>
       <form
-        onSubmit={handleSubmit}
-        className="md:flex w-[90%] mt-4 m-auto md:justify-between max-sm:items-center max-sm:flex-col gap-4"
-      >
-        {/* Your form inputs here */}
-      </form>
+         onSubmit={handleSubmit}
+         className="md:flex w-[90%] mt-4 m-auto md:justify-between max-sm:items-center max-sm:flex-col gap-4"
+       >
+         <div className="md:w-[50%] w-full md:pl-8 gap-4 pl-2 pr-2 flex flex-col">
+           <div className="flex flex-col gap-2">
+             <label htmlFor="firstName">nom</label>
+             <input
+               type="text"
+               id="firstName"
+               name="nom"
+               htmlFor="nom"
+               value={nom}
+               onChange={(e) => setNom(e.target.value)}
+               className="border-x-[3px] pl-4 bg-transparent border-y-[3px] md:w-[90%] md:h-14 h-8 w-full rounded-md border-[#3883A2]"
+             />
+           </div>
+           <div className="flex flex-col gap-2">
+             <label htmlFor="lastName">prenom</label>
+             <input
+               type="text"
+               id="lastName"
+               name="prenom"
+               htmlFor="prenom"
+               value={prenom}
+               onChange={(e) => setPrenom(e.target.value)}
+               className="border-x-[3px] pl-4 bg-transparent border-y-[3px] md:w-[90%] w-full md:h-14 h-8 rounded-md border-[#3883A2]"
+             />
+           </div>
+           <div>
+             <label htmlFor="productName">Nom du produit</label>
+             <input
+               type="text"
+               id="productName"
+               name="productName"
+               value={name || ""}
+               readOnly
+               className="border-x-[3px] pl-4 bg-transparent border-y-[3px] md:w-[90%] w-full md:h-14 h-8 rounded-md border-[#3883A2]"
+             />
+           </div>
+           <div>
+             <label htmlFor="productPrice">Prix</label>
+             <input
+               type="text"
+               id="productPrice"
+               name="productPrice"
+               value={price || ""}
+               readOnly
+               className="border-x-[3px] pl-4 bg-transparent border-y-[3px] md:w-[90%] w-full md:h-14 h-8 rounded-md border-[#3883A2]"
+             />
+           </div>
+           <div className="flex flex-col gap-2">
+             <label htmlFor="transactionNumber">
+               Numéro de transaction Airtel Money/Mobi Cash
+             </label>
+             <input
+               type="text"
+               id="transactionNumber"
+               name="numero_transaction"
+               htmlFor="numero_transaction"
+               value={numero_transaction}
+               onChange={(e) => setNumeroTransaction(e.target.value)}
+               className="border-x-[3px] pl-4 bg-transparent border-y-[3px] md:w-[90%] w-full md:h-14 h-8 rounded-md border-[#3883A2]"
+             />
+           </div>
+           <div className="flex flex-col gap-2">
+             <label htmlFor="address">Adresse</label>
+             <input
+               type="text"
+               id="address"
+               name="adresse"
+               htmlFor="adresse"
+               value={adresse}
+               onChange={(e) => setAdresse(e.target.value)}
+               className="border-x-[3px] pl-4 bg-transparent border-y-[3px] md:w-[90%] w-full md:h-14 h-8 rounded-md border-[#3883A2]"
+             />
+           </div>
+         </div>
+         <div className="md:w-[50%] w-full gap-4 flex max-sm:pl-2 max-sm:pr-2 flex-col">
+           <div className="flex flex-col gap-2">
+             <label htmlFor="deliveryMode">Mode de livraison</label>
+             <select
+               id="deliveryMode"
+               name="mode_livraison"
+               htmlFor="mode_livraison"
+               value={mode_livraison}
+               onChange={(e) => setModeLivraison(e.target.value)}
+               className="border-x-[3px] pl-4 bg-transparent border-y-[3px] md:w-[90%] w-full md:h-14 h-8 rounded-md border-[#3883A2]"
+             >
+               <option value="express">express</option>
+               <option value="retrait en magasin">retrait en magasin</option>
+             </select>
+           </div>
+           <div className="flex flex-col gap-2">
+             <label htmlFor="paymentMethod">Moyen de paiement</label>
+             <select
+               id="paymentMethod"
+               name="moyen_paiement"
+               value={moyen_paiement}
+               onChange={(e) => setMoyenPaiement(e.target.value)}
+               className="border-x-[3px] pl-4 bg-transparent border-y-[3px] md:w-[90%] w-full md:h-14 h-8 rounded-md border-[#3883A2]"
+             >
+               <option value="">Sélectionner</option>
+               <option value="mobil cash">mobil cash</option>
+               <option value="airtel money">airtel money</option>
+               <option value="espèces">espèces</option>
+             </select>
+           </div>
+         </div>
+       </form>
 
       <button
         onClick={handleSubmit}
@@ -113,12 +217,22 @@ export function Form() {
 
       {/* Display facture and formulaire */}
       {facture && formulaire && (
-        <div className="absolute inset-0 flex justify-center items-center bg-white bg-opacity-50 backdrop-blur-md z-20 min-h-screen">
+          <div className="absolute inset-0 flex justify-center items-center bg-white bg-opacity-50 backdrop-blur-md z-20 min-h-screen">
           <div className="bg-white p-6 rounded-lg shadow-xl max-w-lg w-full">
             <h2 className="text-xl font-bold text-center text-[#3883A2]">Votre Facture</h2>
             <div className="mt-4">
               <p><strong>Nom:</strong> {formulaire.nom}</p>
-              {/* Other details */}
+              <p><strong>Prénom:</strong> {formulaire.prenom}</p>
+              <p><strong>Numéro de transaction:</strong> {formulaire.numero_transaction}</p>
+              <p><strong>Adresse de livraison:</strong> {formulaire.adresse}</p>
+              <p><strong>Mode de livraison:</strong> {formulaire.mode_livraison}</p>
+              <p><strong>Moyen de paiement:</strong> {formulaire.moyen_paiement}</p>
+              <p><strong>Produit:</strong> {facture.nom_article}</p>
+              <p><strong>Prix Unitaire:</strong> {facture.prix_article} FCFA</p>
+              <p><strong>Quantité:</strong> {facture.nombre_article}</p>
+              <p><strong>Frais de livraison:</strong> {facture.livraison} FCFA</p>
+              <p><strong>Total à payer:</strong> {facture.total} FCFA</p>
+              <p><strong>Date de la transaction:</strong> {new Date(facture.date_transaction).toLocaleString()}</p>
             </div>
           </div>
         </div>
