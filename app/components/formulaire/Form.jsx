@@ -6,23 +6,27 @@ export function Form() {
   const searchParams = useSearchParams();
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
-
   const [nom, setNom] = useState("");
   const [prenom, setPrenom] = useState("");
   const [numero_transaction, setNumeroTransaction] = useState("");
   const [adresse, setAdresse] = useState("");
   const [mode_livraison, setModeLivraison] = useState("express");
   const [moyen_paiement, setMoyenPaiement] = useState("");
-
   const [nombre_article, setNombreArticle] = useState(1);
-
+  const [isClient, setIsClient] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [facture, setFacture] = useState(null);
   const [formulaire, setFormulaire] = useState(null);
   const [error, setError] = useState("");
 
+  // Assurez-vous de ne pas appeler useSearchParams avant que le composant soit monté
   useEffect(() => {
-    if (!isClient) return;
+    setIsClient(true); // Le composant est maintenant monté côté client
+  }, []);
+
+  // Récupérer les paramètres de l'URL une fois le composant monté
+  useEffect(() => {
+    if (!isClient) return; // Ne pas exécuter si ce n'est pas côté client
     const productName = searchParams.get("name");
     const productPrice = searchParams.get("price");
 
@@ -30,13 +34,15 @@ export function Form() {
       setName(productName);
       setPrice(productPrice);
     }
-  }, [searchParams,isClient]);
-  if (!isClient) return null;
+  }, [searchParams, isClient]);
+
+  if (!isClient) return null; // Attendez que le composant soit monté côté client
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    // Validation des champs du formulaire
     if (!nom || !prenom || !numero_transaction || !adresse || !mode_livraison || !moyen_paiement) {
       setError("Tous les champs doivent être remplis !");
       setIsSubmitting(false);
