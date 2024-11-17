@@ -1,12 +1,9 @@
-"use client"; // Cette ligne assure que le code sera exécuté uniquement côté client
+"use client";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import dynamic from "next/dynamic";
 
-// Dynamically load the Form component to avoid server-side rendering issues
-const FormComponent = dynamic(() => import("./FormComponent"), { ssr: false });
-
-export default function Form() {
+export function Form() {
   const searchParams = useSearchParams();
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
@@ -17,22 +14,21 @@ export default function Form() {
   const [mode_livraison, setModeLivraison] = useState("express");
   const [moyen_paiement, setMoyenPaiement] = useState("");
   const [nombre_article, setNombreArticle] = useState(1);
+  const [isClient, setIsClient] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [facture, setFacture] = useState(null);
   const [formulaire, setFormulaire] = useState(null);
   const [error, setError] = useState("");
-  
-  const [isClient, setIsClient] = useState(false);
 
-  // UseEffect to detect client-side rendering (once the component is mounted)
+  const Form = dynamic(() => Promise.resolve(FormComponent), { ssr: false });
+  // Assurez-vous de ne pas appeler useSearchParams avant que le composant soit monté
   useEffect(() => {
     setIsClient(true); // Le composant est maintenant monté côté client
   }, []);
 
-  // UseEffect to handle URL params after the component is mounted
+  // Récupérer les paramètres de l'URL une fois le composant monté
   useEffect(() => {
     if (!isClient) return; // Ne pas exécuter si ce n'est pas côté client
-
     const productName = searchParams.get("name");
     const productPrice = searchParams.get("price");
 
@@ -42,64 +38,17 @@ export default function Form() {
     }
   }, [searchParams, isClient]);
 
-  if (!isClient) return null; // Ne pas afficher le composant tant qu'il n'est pas côté client
+  if (!isClient) return null; // Attendez que le composant soit monté côté client
 
-  // Handle the form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Validate form fields
+    // Validation des champs du formulaire
     if (!nom || !prenom || !numero_transaction || !adresse || !mode_livraison || !moyen_paiement) {
       setError("Tous les champs doivent être remplis !");
       setIsSubmitting(false);
       return;
-    }
-
-    const formData = {
-      nom,
-      prenom,
-      numero_transaction,
-      adresse,
-      mode_livraison,
-      moyen_paiement,
-      nom_article: name,
-      prix_article: price,
-      nombre_article: nombre_article,
-    };
-
-    try {
-      const res = await fetch("https://ecommerce-xxz7.onrender.com/api/formulaire", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const result = await res.json();
-      console.log("Réponse de l'API:", result);
-
-      if (res.ok) {
-        alert(result.message || "Formulaire envoyé avec succès !");
-        if (result.facture) {
-          setFacture(result.facture);
-        }
-        if (result.formulaire) {
-          setFormulaire(result.formulaire);
-        }
-      } else {
-        setError(result.message || "Une erreur s'est produite.");
-      }
-    } catch (error) {
-      console.error("Erreur lors de l'envoi des données:", error);
-      setError("Erreur lors de l'envoi des données.");
-    } finally {
-      setIsSubmitting(false);
-    }
-
-    console.log("Données envoyées :", formData);
-  };
     }
 
     const formData = {
