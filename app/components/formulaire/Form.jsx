@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
+import dynamic from "next/dynamic";
 
 export function Form() {
   const searchParams = useSearchParams();
@@ -19,6 +20,7 @@ export function Form() {
   const [formulaire, setFormulaire] = useState(null);
   const [error, setError] = useState("");
 
+  const Form = dynamic(() => Promise.resolve(FormComponent), { ssr: false });
   // Assurez-vous de ne pas appeler useSearchParams avant que le composant soit monté
   useEffect(() => {
     setIsClient(true); // Le composant est maintenant monté côté client
