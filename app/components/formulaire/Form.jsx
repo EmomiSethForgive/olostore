@@ -22,6 +22,7 @@ export function Form() {
   const [error, setError] = useState("");
 
   useEffect(() => {
+    if (!isClient) return;
     const productName = searchParams.get("name");
     const productPrice = searchParams.get("price");
 
@@ -29,7 +30,8 @@ export function Form() {
       setName(productName);
       setPrice(productPrice);
     }
-  }, [searchParams]);
+  }, [searchParams,isClient]);
+  if (!isClient) return null;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
