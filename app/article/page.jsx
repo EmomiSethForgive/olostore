@@ -125,16 +125,25 @@ export default function Article() {
             >
               Commander
             </Link>
-            <button className="bg-[#3883A2] text-white py-2 px-6 rounded-md flex gap-2 items-center">
-              Commander
-              <Image
-                className="w-5 h-5 bg-cover"
-                src="/assets/wha.svg"
-                alt="Commander via WhatsApp"
-                width={20}
-                height={20}
-              />
-            </button>
+            
+            <a
+                href={`https://wa.me/+24162787288?text=${encodeURIComponent(
+                  "Bonjour, je suis intéressé par votre produit !"
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#3883A2] text-white py-2 px-6 rounded-md flex gap-2 items-center"
+              >
+                Commander
+                <Image
+                  className="w-5 h-5 bg-cover"
+                  src="/assets/wha.svg"
+                  alt="Commander via WhatsApp"
+                  width={20}
+                  height={20}
+                />
+              </a>
+
             <div className="flex gap-1 items-center">
               <Image
                 className="w-5 h-5 bg-cover"
