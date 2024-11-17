@@ -1,3 +1,6 @@
+"use client";
+
+
 import { Footer } from "../components/Footer";
 import { Form } from "../components/formulaire/Form";
 import { Header } from "../components/Header";

@@ -9,7 +9,7 @@ export function Section2() {
         </button>
       </div>
       <div class=" flex mt-10 flex-wrap items-center justify-between w-[80%] m-auto py-1 md:py-2 gap-3 custom2:justify-around ">
-        <div class="min-300:max-600:w-full bg-[#3883A2] p-3 rounded-[20px] text-center w-[400px] h-[450px] hover:scale-105 transition-transform duration-300 shadow-lg  max-2xl:w-[250px] max-xl:w-[45%] max-md:w-full custom5:w-full">
+        <div class="min-300:max-600:w-full bg-[#3883A2] p-3 rounded-[20px] text-center w-[400px] h-[450px] hover:scale-105 transition-transform duration-300 shadow-lg  max-2xl:w-[250px] max-xl:w-[45%] max-md:w-full  z-10">
           <div class="flex items-center justify-center">
             <img
               src="../assets/1372-samsung-galaxy-a55-5g-8-256gb-azul-libre-review-removebg-preview 2.svg"

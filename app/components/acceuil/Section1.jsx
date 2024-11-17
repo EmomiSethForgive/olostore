@@ -5,7 +5,7 @@ export function Section1() {
     <div className={styles.section}>
       <div className={styles.section1}>
         <div className={styles.left}>
-          <div className={styles.titre}>O'LO STORE</div>
+          <div className={styles.titre}>O'LO STORE</div>{" "}
           <div className={styles.para}>
             Vos articles <br />à porter <br /> de main
           </div>

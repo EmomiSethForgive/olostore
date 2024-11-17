@@ -10,12 +10,6 @@ module.exports = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-<<<<<<< HEAD
-      }, 
-      // screens: {
-      //   'min-300': '300px',  // Point de départ à 300px
-      //   'max-600': {'max': '600px'}, // Maximum à 600px
-=======
       },
     },
     screens: {
@@ -27,7 +21,6 @@ module.exports = {
       '2xl': '1536px',
 
       // Vos media queries personnalisées
->>>>>>> 01e24ef776cfa5aa7bd7601bd3cb10b1ded1685c
     },
   },
   plugins: [],
