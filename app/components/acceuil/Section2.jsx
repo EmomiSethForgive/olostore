@@ -1,166 +1,397 @@
-import Link from "next/link";
+// import Link from "next/link";
+// import Image from "next/image";
+// import { Button } from "./Button";
+
+// export function Section2() {
+//   return (
+//     <div className="w-full flex flex-col gap-6">
+//       <div className="w-[80%] md:w-[90%] m-auto">
+//         <h1 className="text-white text-xl md:text-2xl text-bold mt-10 bg-[#3883A2] rounded-md px-2 pl-2 mb-7">
+//           Les bonnes affaires
+//         </h1>
+//         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-[1.5fr_1.5fr_3.1fr] gap-4">
+//           {/* Première carte */}
+          // <div className="flex flex-col bg-[#3883A2]  px-[20px] pt-3 pb-4 max-sm:items-center rounded-2xl shadow-md">
+          //   <div>
+          //     <Image
+          //       src="/assets/phone.svg"
+          //       alt="Search Icon"
+          //       width={150}
+          //       height={150}
+          //       className="w-[150px] h-[150px] md:w-[180px] md:h-[180px] lg:w-[160px] lg:h-[160px] mt-3 hover:scale-110 transition-transform duration-300"
+          //     />
+          //   </div>
+          //   <p className="text-white font-bold text-xl mt-3">
+          //     Téléphone <br /> Samsung A55
+          //   </p>
+          //   <div className="flex items-center gap-4 mt-1">
+          //     <p className="font-bold text-lg text-white">200000</p>
+          //     <Image
+          //       src="/assets/argent.svg"
+          //       alt="Argent Icon"
+          //       width={40}
+          //       height={30}
+          //       className="w-[50px] h-[30px]"
+          //     />
+          //   </div>
+          //   <Button />
+          // </div>
+
+//           {/* Deuxième carte */}
+//           <div className="flex flex-col bg-[#3883A2] px-[20px] pt-3 pb-4 max-sm:items-center rounded-2xl shadow-md">
+//             <div>
+//               <Image
+//                 src="/assets/vélo.svg"
+//                 alt="Search Icon"
+//                 width={150}
+//                 height={150}
+//                 className="w-[150px] h-[150px] md:w-[180px] md:h-[180px] lg:w-[160px] mt-3 lg:h-[160px] hover:scale-110 transition-transform duration-300"
+//               />
+//             </div>
+//             <p className="text-white font-bold text-xl mt-3">
+//             Vélo <br /> Vtc W-t9
+//             </p>
+//             <div className="flex items-center gap-4 mt-1">
+//               <p className="font-bold text-lg text-white">200000</p>
+//               <Image
+//                 src="/assets/argent.svg"
+//                 alt="Argent Icon"
+//                 width={40}
+//                 height={30}
+//                 className="w-[50px] h-[30px]"
+//               />
+//             </div>
+//             <Button />
+//           </div>
+
+//           {/* Troisième carte (plus grande) */}
+          // <div className="flex flex-col bg-[#5BA0BC] px-[20px] pt-3 pb-4 max-sm:items-center pb-2 rounded-2xl  shadow-md lg:col-span-1">
+          //   <div>
+          //     <Image
+          //       src="/assets/ordinateurrouge.svg"
+          //       alt="Ordinateur Rouge"
+          //       width={200}
+          //       height={150}
+          //       className="w-[180px] h-[140px] md:w-[250px] md:h-[200px] lg:w-[2800px] lg:h-[200px] hover:scale-110 transition-transform duration-300"
+          //     />
+          //   </div>
+          //   <p className="text-white font-bold text-xl mt-3">
+          //     Ordinateur <br /> Mac Book M1
+          //   </p>
+          //   <div className="flex items-center gap-4 mt-1">
+          //     <p className="font-bold text-lg text-white">520000</p>
+          //     <Image
+          //       src="/assets/argent.svg"
+          //       alt="Argent Icon"
+          //       width={40}
+          //       height={30}
+          //       className="w-[50px] h-[30px]"
+          //     />
+          //   </div>
+          //   <div className="">
+          //     <Button />
+          //   </div>
+          // </div>
+//         </div>
+//       </div>
+//       {/* 2 sections cartes */}
+//       <div className="w-[80%] md:w-[90%] m-auto">
+//         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-[3.1fr_1.5fr_1.5fr] gap-4">
+          // {/* Troisième carte (plus grande) */}
+          // <div className="flex flex-col bg-[#EAEAEA] px-[20px] pt-3 pb-4 max-sm:items-center pb-2 rounded-2xl  shadow-md lg:col-span-1">
+          //   <div>
+          //     <Image
+          //       src="/assets/herpotte.svg"
+          //       alt="Ordinateur Rouge"
+          //       width={200}
+          //       height={150}
+          //       className="w-[180px] h-[140px] md:w-[250px] md:h-[200px] lg:w-[2800px] lg:h-[200px] hover:scale-110 transition-transform duration-300"
+          //     />
+          //   </div>
+          //   <p className="text-black font-bold text-xl mt-3">
+          //   Ecouteurs <br /> Samsung Bud
+          //   </p>
+          //   <div className="flex items-center gap-4 mt-1">
+          //     <p className="font-bold text-lg text-black">570000</p>
+          //     <Image
+          //       src="/assets/argent.svg"
+          //       alt="Argent Icon"
+          //       width={40}
+          //       height={30}
+          //       className="w-[50px] h-[30px]"
+          //     />
+          //   </div>
+          //   <div className="">
+          //     <Button />
+          //   </div>
+          // </div>
+//           {/* Première carte */}
+//           <div className="flex flex-col bg-[#A1A1A1] px-[20px] pt-3 pb-4 max-sm:items-center rounded-2xl  shadow-md">
+//             <div>
+//               <Image
+//                 src="../assets/manette.svg"
+//                 alt="Search Icon"
+//                 width={150}
+//                 height={150}
+//                 className="w-[150px] h-[150px] md:w-[180px] md:h-[180px] lg:w-[160px] lg:h-[160px] mt-3 hover:scale-110 transition-transform duration-300"
+//               />
+//             </div>
+//             <p className="text-white font-bold text-xl mt-3">
+//             Manette <br /> Manette xbox
+//             </p>
+//             <div className="flex items-center gap-4 mt-1">
+//               <p className="font-bold text-lg text-white">200000</p>
+//               <Image
+//                 src="/assets/argent.svg"
+//                 alt="Argent Icon"
+//                 width={40}
+//                 height={30}
+//                 className="w-[50px] h-[30px]"
+//               />
+//             </div>
+//             <Button />
+//           </div>
+
+//           {/* Deuxième carte */}
+//           <div className="flex flex-col bg-[#2E2E2E] px-[20px] pt-3 pb-4 max-sm:items-center rounded-2xl shadow-md">
+//             <div>
+//               <Image
+//                 src="/assets/phone.svg"
+//                 alt="Search Icon"
+//                 width={150}
+//                 height={150}
+//                 className="w-[150px] h-[150px] md:w-[180px] md:h-[180px] lg:w-[160px] mt-3 lg:h-[160px] hover:scale-110 transition-transform duration-300"
+//               />
+//             </div>
+//             <p className="text-white font-bold text-xl mt-3">
+//             Ordinateur <br /> HP i-core5
+//             </p>
+//             <div className="flex items-center gap-4 mt-1">
+//               <p className="font-bold text-lg text-white">510000</p>
+//               <Image
+//                 src="/assets/argent.svg"
+//                 alt="Argent Icon"
+//                 width={40}
+//                 height={30}
+//                 className="w-[50px] h-[30px]"
+//               />
+//             </div>
+//             <Button />
+//           </div>
+
+//         </div>
+//       </div>
+      
+//     </div>
+//   );
+// }
+
+
+"use client";
+
+import Image from "next/image";
+import { Button } from "./Button";
+import { motion } from "framer-motion";
 
 export function Section2() {
+  // Définir l'animation des cartes
+  const cardAnimation = {
+    initial: { opacity: 0, y: 50, scale: 0.9 },
+    animate: { opacity: 1, y: 0, scale: 1 },
+    whileHover: {
+      scale: 1.05,
+      rotate: 1,
+      boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.3)",
+    },
+    whileTap: { scale: 0.95 },
+    transition: { duration: 0.5, ease: "easeInOut" },
+  };
+
+  const imageAnimation = {
+    whileHover: { rotate: 10, scale: 1.1 },
+    transition: { type: "spring", stiffness: 200 },
+  };
+
   return (
-    <div className="w-full mt-10 text-2xl font-black gap-3 ">
-      <div className="w-full pl-48 w-[90%] flex items-around ">
-        <button class="text-sm bg-[#3883A2]  hover:bg-gray-300 text-white font-semibold py-2 px-4 rounded-[10px] w-[212px] h-[36px]">
+    <div className="w-full flex flex-col gap-6">
+      <div className="w-[80%] md:w-[90%] m-auto">
+        <h1 className="text-white text-xl md:text-2xl text-bold mt-10 bg-[#3883A2] rounded-md px-2 pl-2 mb-7">
           Les bonnes affaires
-        </button>
-      </div>
-      <div class=" flex mt-10 flex-wrap items-center justify-between w-[80%] m-auto py-1 md:py-2 gap-3 custom2:justify-around ">
-        <div class="min-300:max-600:w-full bg-[#3883A2] p-3 rounded-[20px] text-center w-[400px] h-[450px] hover:scale-105 transition-transform duration-300 shadow-lg  max-2xl:w-[250px] max-xl:w-[45%] max-md:w-full  z-10">
-          <div class="flex items-center justify-center">
-            <img
-              src="../assets/1372-samsung-galaxy-a55-5g-8-256gb-azul-libre-review-removebg-preview 2.svg"
-              alt="Téléphone Samsung A55"
-              class="w-30 h-60 "
-            />
-          </div>
-          <div>
-            <p class="text-black font-bold">Telephone</p>
-            <p class="text-white font-bold text-lg">Samsung A55</p>
-            <p class="text-white text-xl mb-2  flex justify-around">
-              220 000{" "}
-              <p class="text-red-500 text-xl mb-2 line-through ">230 000 </p>{" "}
-            </p>
-            <button class=" text-sm bg-white hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-[10px] w-[212px] h-[36px]">
-              Commander
-            </button>
-          </div>
-        </div>
+        </h1>
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-[1.5fr_1.5fr_3.1fr] gap-6">
+          {/* Carte 1 */}
+          <motion.div
+            key="card-1"
+            {...cardAnimation}
+            className="flex flex-col bg-[#3883A2] px-[20px] pt-3 pb-4 max-sm:items-center rounded-2xl shadow-md"
+          >
+            <motion.div {...imageAnimation} className="mt-3">
+              <Image src="/assets/phone.svg" alt="Téléphone Samsung A55" width={150} height={150} />
+            </motion.div>
+            <motion.p className="text-white font-bold text-xl mt-3">Téléphone Samsung A55</motion.p>
+            <motion.div className="flex items-center gap-4 mt-1">
+              <p className="font-bold text-lg text-white">200000</p>
+              <Image src="/assets/argent.svg" alt="Argent Icon" width={40} height={30} />
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.3 }}>
+              <Button />
+            </motion.div>
+          </motion.div>
 
-        <div class="min-300:max-600:w-full bg-[#3883A2] p-3 rounded-[20px] text-center  w-[400px] h-[450px] hover:scale-105 transition-transform duration-300 shadow-lg max-2xl:w-[250px]  max-xl:w-[45%]  max-md:w-full  custom3:w-[250px] custom5:w-full">
-          <div class="flex items-center justify-center">
-            <img
-              src="../assets/vélo.svg"
-              alt="Téléphone Samsung A55"
-              class="w-30 h-60 "
-            />
-          </div>
-          <div>
-            <p class="text-black font-bold ">Vélo</p>
-            <p class="text-white font-bold text-lg">Vtc Z35</p>
-            <p class="text-white text-xl mb-2  flex justify-around">
-              70 000{" "}
-              <p class="text-red-500 text-xl mb-2 line-through ">75 000 </p>{" "}
-            </p>
-            <button class="bg-white text-sm hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-[10px] w-[212px] h-[36px]">
-              Commander
-            </button>
-          </div>
-        </div>
+          {/* Carte 2 */}
+          <motion.div
+            key="card-2"
+            {...cardAnimation}
+            className="flex flex-col bg-[#3883A2] px-[20px] pt-3 pb-4 max-sm:items-center rounded-2xl shadow-md"
+          >
+            <motion.div {...imageAnimation} className="mt-3">
+              <Image src="/assets/vélo.svg" alt="Vélo Vtc W-t9" width={150} height={150} />
+            </motion.div>
+            <motion.p className="text-white font-bold text-xl mt-3">Vélo Vtc W-t9</motion.p>
+            <motion.div className="flex items-center gap-4 mt-1">
+              <p className="font-bold text-lg text-white">200000</p>
+              <Image src="/assets/argent.svg" alt="Argent Icon" width={40} height={30} />
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.2 }} transition={{ duration: 0.3 }}>
+              <Button />
+            </motion.div>
+          </motion.div>
 
-        <div class="min-300:max-600:w-full bg-[#8EC0D4] p-3 rounded-[20px] text-center  w-[700px] h-[450px] hover:scale-105 transition-transform duration-300 shadow-lg min-300:max-600:w-[300px] max-2xl:w-[500px]  max-xl:w-full max-md:w-full  custom5:w-full ">
-          <div class="flex justify-end mr-8 small:justify-center">
-            <img
-              src="../assets/ordinateurrouge.svg"
-              alt="Téléphone Samsung A55"
-              class="w-30 h-60 ml-42"
-            />
-          </div>
-          <div class="flex justify-start flex-col ml-8 small:ml-0">
-            <p class="max-2xl:w-full text-black w-[33%]  font-bold min-300:max-600:w-full">
-              Ordinateur
-            </p>
-            <p class="max-2xl:w-full text-white font-bold w-[33%]  text-lg min-300:max-600:w-[100%]">
-              Mac book M1
-            </p>
-            <p class="max-2xl:w-full custom3:w-full text-white text-xl mb-2 w-[33%] flex justify-around min-300:max-600:w-[100%] custom5:w-[50%]">
-              500 0000{" "}
-              <p class="text-red-500 text-xl mb-2 line-through ">520 000 </p>{" "}
-            </p>
-            <button class="max-2xl:w-full bg-white text-sm hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-[10px] w-[212px] h-[36px] small:ml-5">
-              Commander
-            </button>
-          </div>
-        </div>
-
-        {/* <div class="bg-[#3883A2] p-4 rounded-[20px] text-center w-[300px] h-[400px] hover:scale-105 transition-transform duration-300 shadow-lg">
-        <div>
-            <img src="../assets/pc1.svg" alt="Téléphone Samsung A55" class="w-30 h-60 " />
-          </div>
-          <div>
-          <p class="text-black font-bold">Pc</p>
-            <p class="text-white font-bold text-lg">Mac Book M1</p>
-            <p class="text-white text-xl mb-2">350 000</p>
-            <Link href="../../article"  className="bg-white text-black font-semibold py-2 px-4 rounded-[10px] w-[212px] h-[36px] ">
-          
-            Commander
-          
-          </Link>
-          </div>
-        </div> */}
-      </div>
-
-      <div className="w-full gap-3">
-        <div class="gap-3 flex flex-wrap items-center justify-between w-[80%] m-auto py-1 md:py-2 ">
-          <div class="min-300:max-600:w-full bg-[#B4B5B0] p-3 rounded-[20px] text-center w-[700px] h-[450px] hover:scale-105 transition-transform duration-300 shadow-lg  min-300:max-600:w-[300px] max-2xl:w-[500px] max-xl:w-full max-md:w-full   ">
-            <div class="flex justify-end mr-8">
-              <img
-                src="../assets/herpotte.svg"
-                alt="Téléphone Samsung A55"
-                class="w-30 h-60 "
-              />
-            </div>
-            <div class="flex justify-end mr-8 flex-col">
-              <p class="text-black  w-[30%] font-bold min-300:max-600:w-[100%]">
-                Ecouteurs
-              </p>
-              <p class="text-white  w-[30%] font-bold text-lg min-300:max-600:w-[100%]">
-                Samsung Bud
-              </p>
-              <p class="max-2xl:w-[80%] custom3:w-full text-white text-xl mb-2  w-[30%] flex justify-around min-300:max-600:w-[100%] custom5:w-[50%]">
-                430 000{" "}
-                <p class="text-red-500 text-xl mb-2 line-through ">450 000 </p>{" "}
-              </p>
-              <button class=" text-sm bg-white hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-[10px] w-[212px] h-[36px] small:ml-5">
-                Commander
-              </button>
-            </div>
-          </div>
-
-          <div class="min-300:max-600:w-full bg-[#B4B5B0] p-3 rounded-[20px] text-center  w-[400px] h-[450px] hover:scale-105 transition-transform duration-300 shadow-lg max-2xl:w-[250px] max-xl:w-[45%] max-md:w-full  custom3:w-[250px] custom5:w-full">
-            <div class="flex items-center justify-center"> 
-              <img
-                src="../assets/manette.svg"
-                alt="Téléphone Samsung A55"
-                class="w-30 h-60 "
-              />
-            </div>
+          {/* Carte 3 */}
+          {/* <motion.div
+            key="card-3"
+            {...cardAnimation}
+            className="flex flex-col bg-[#5BA0BC] px-[20px] pt-3 pb-4 max-sm:items-center rounded-2xl shadow-md"
+          >
+            <motion.div {...imageAnimation} className="mt-3">
+              <Image src="/assets/ordinateurrouge.svg" alt="Ordinateur Mac Book M1" width={150} height={150} />
+            </motion.div>
+            <motion.p className="text-white font-bold text-xl mt-3">Ordinateur Mac Book M1</motion.p>
+            <motion.div className="flex items-center gap-4 mt-1">
+              <p className="font-bold text-lg text-white">520000</p>
+              <Image src="/assets/argent.svg" alt="Argent Icon" width={40} height={30} />
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.2 }} transition={{ duration: 0.3 }}>
+              <Button />
+            </motion.div>
+          </motion.div> */}
+             <div className="flex flex-col bg-[#5BA0BC] px-[20px] pt-3 max-sm:items-center pb-2 rounded-2xl  shadow-md lg:col-span-1 transition transform hover:scale-105 duration-300 ">
             <div>
-              <p class="text-black font-bold">Manette</p>
-              <p class="text-white font-bold text-lg">Manette xbox</p>
-              <p class="text-white text-xl mb-2  flex justify-around">
-                50 000{" "}
-                <p class="text-red-500 text-xl mb-2 line-through ">60 000 </p>{" "}
-              </p>
-              <button class="text-sm bg-white hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-[10px] w-[212px] h-[36px]">
-                Commander
-              </button>
+              <Image
+                src="/assets/ordinateurrouge.svg"
+                alt="Ordinateur Rouge"
+                width={200}
+                height={150}
+                className="w-[180px] h-[140px] md:w-[250px] md:h-[200px] lg:w-[2800px] lg:h-[200px] hover:scale-110 transition-transform duration-300"
+              />
+            </div>
+            <p className="text-white font-bold text-xl mt-3">
+              Ordinateur <br /> Mac Book M1
+            </p>
+            <div className="flex items-center gap-4 mt-1">
+              <p className="font-bold text-lg text-white">520000</p>
+              <Image
+                src="/assets/argent.svg"
+                alt="Argent Icon"
+                width={40}
+                height={30}
+                className="w-[50px] h-[30px]"
+              />
+            </div>
+            <div className="shadow-mda transition transform hover:scale-105 duration-300">
+              <Button />
             </div>
           </div>
 
-          <div class="min-300:max-600:w-full bg-[#B4B5B0] p-3 rounded-[20px] text-center w-[400px] h-[450px] hover:scale-105 transition-transform duration-300 shadow-lg max-2xl:w-[250px] max-xl:w-[45%] max-md:w-full  custom3:w-[250px] custom5:w-full">
-            <div class="flex items-center justify-center">
-              <img
-                src="../assets/pc1.svg"
-                alt="Téléphone Samsung A55"
-                class="w-30 h-60 "
+        </div>
+      </div>
+
+      <div className="w-[80%] md:w-[90%] m-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-[3.1fr_1.5fr_1.5fr] gap-6">
+          {/* Carte 4 */}
+          {/* <motion.div
+            key="card-4"
+            {...cardAnimation}
+            className="flex flex-col bg-[#EAEAEA] px-[20px] pt-3 pb-4 max-sm:items-center rounded-2xl shadow-md"
+          >
+            <motion.div {...imageAnimation} className="mt-3">
+              <Image src="/assets/herpotte.svg" alt="Écouteurs Samsung Bud" width={150} height={150} className="" />
+            </motion.div>
+            <motion.p className="text-white font-bold text-xl mt-3">Écouteurs Samsung Bud</motion.p>
+            <motion.div className="flex items-center gap-4 mt-1">
+              <p className="font-bold text-lg text-white">570000</p>
+              <Image src="/assets/argent.svg" alt="Argent Icon" width={40} height={30} />
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.3 }}>
+              <Button />
+            </motion.div>
+          </motion.div> */}
+
+             <div className="flex flex-col bg-[#EAEAEA] px-[20px] pt-3 max-sm:items-center pb-2 rounded-2xl  shadow-md lg:col-span-1 transition transform hover:scale-105 duration-300">
+            <div>
+              <Image
+                src="/assets/herpotte.svg"
+                alt="Ordinateur Rouge"
+                width={200}
+                height={150}
+                className="w-[180px] h-[140px] md:w-[250px] md:h-[200px] lg:w-[2800px] lg:h-[200px] hover:scale-110 transition-transform duration-300"
               />
             </div>
-            <div>
-              <p class="text-black font-bold">Ecran</p>
-              <p class="text-white font-bold text-lg">Samsung A55</p>
-              <p class=" text-white text-xl mb-2  flex justify-around">
-                210 000{" "}
-                <p class="text-red-500 text-xl mb-2 line-through ">240 000 </p>{" "}
-              </p>
-              <button class="text-sm bg-white hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-[10px] w-[212px] h-[36px]">
-                Commander
-              </button>
+            <p className="text-black font-bold text-xl mt-3">
+            Ecouteurs <br /> Samsung Bud
+            </p>
+            <div className="flex items-center gap-4 mt-1">
+              <p className="font-bold text-lg text-black">570000</p>
+              <Image
+                src="/assets/argent.svg"
+                alt="Argent Icon"
+                width={40}
+                height={30}
+                className="w-[50px] h-[30px]"
+              />
+            </div>
+            <div className="shadow-mda transition transform hover:scale-105 duration-300">
+              <Button />
             </div>
           </div>
+
+          {/* Carte 5 */}
+          <motion.div
+            key="card-5"
+            {...cardAnimation}
+            className="flex flex-col bg-[#A1A1A1] px-[20px] pt-3 pb-4 max-sm:items-center rounded-2xl shadow-md"
+          >
+            <motion.div {...imageAnimation} className="mt-3">
+              <Image src="/assets/manette.svg" alt="Manette Xbox" width={150} height={150} />
+            </motion.div>
+            <motion.p className="text-white font-bold text-xl mt-3">Manette Xbox</motion.p>
+            <motion.div className="flex items-center gap-4 mt-1">
+              <p className="font-bold text-lg text-white">200000</p>
+              <Image src="/assets/argent.svg" alt="Argent Icon" width={40} height={30} />
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.2 }} transition={{ duration: 0.3 }}>
+              <Button />
+            </motion.div>
+          </motion.div>
+
+          {/* Carte 6 */}
+          <motion.div
+            key="card-6"
+            {...cardAnimation}
+            className="flex flex-col bg-[#2E2E2E] px-[20px] pt-3 pb-4 max-sm:items-center rounded-2xl shadow-md"
+          >
+            <motion.div {...imageAnimation} className="mt-3">
+              <Image src="/assets/phone.svg" alt="Ordinateur HP i-core5" width={150} height={150} />
+            </motion.div>
+            <motion.p className="text-white font-bold text-xl mt-3">Ordinateur HP i-core5</motion.p>
+            <motion.div className="flex items-center gap-4 mt-1">
+              <p className="font-bold text-lg text-white">510000</p>
+              <Image src="/assets/argent.svg" alt="Argent Icon" width={40} height={30} />
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.2 }} transition={{ duration: 0.3 }}>
+              <Button />
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </div>

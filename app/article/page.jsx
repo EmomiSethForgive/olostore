@@ -128,7 +128,7 @@ export default function Article() {
             
             <a
                 href={`https://wa.me/+24162787288?text=${encodeURIComponent(
-                  "Bonjour, je suis intéressé par votre produit !"
+                  "Bonjour, je suis intér !"
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"

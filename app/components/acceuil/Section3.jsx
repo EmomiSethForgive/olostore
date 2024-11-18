@@ -1,134 +1,185 @@
+// 
+
+"use client";
+
+import Image from "next/image";
+import { Button } from "./Button";
+import { motion } from "framer-motion";
+
 export function Section3() {
+  // Définir l'animation des cartes
+  const cardAnimation = {
+    initial: { opacity: 0, y: 50, scale: 0.9 },
+    animate: { opacity: 1, y: 0, scale: 1 },
+    whileHover: {
+      scale: 1.05,
+      rotate: 1,
+      boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.3)",
+    },
+    whileTap: { scale: 0.95 },
+    transition: { duration: 0.5, ease: "easeInOut" },
+  };
+
+  const imageAnimation = {
+    whileHover: { rotate: 10, scale: 1.1 },
+    transition: { type: "spring", stiffness: 200 },
+  };
+
   return (
-    <div className="flex flex-col items-center justify-around ">
-    <div class="flex flex-wrap items-center justify-between w-[80%]  py-1 md:py-2 custom3:gap-2 ">
-      <div class="max-md:w-full  max-2xl:w-[250px]  custom5:w-full bg-[#56584E] p-4 rounded-[20px] text-center w-[350px] h-[450px] hover:scale-105 transition-transform duration-300 shadow-lg">
-        <div class="flex justify-center">
-          <img
-            src="../assets/monte.svg"
-            alt="Téléphone Samsung A55"
-            class="w-30 h-60 "
-          />
-        </div>
-        <div >
-          <p class="text-black font-bold">Montre</p>
-          <p class="text-white font-bold text-lg">Whatch 5 pro</p>
-          <p class="text-white text-xl mb-2">180 000</p>
-          <button class="bg-white hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-[10px] w-[212px] h-[36px]">
-            Commander
-          </button>
+    <div className="w-full">
+      {/* 2 sections cartes */}
+      <div className="w-[80%] md:w-[90%] m-auto">
+        <div className="grid grid-cols-1 md:grid-cols-4 mb-8 lg:grid-cols-[1.5fr_1.5fr_1.5fr_1.5fr] gap-4">
+          {/* Carte 1 */}
+          <motion.div
+            key="card-1"
+            {...cardAnimation}
+            className="flex flex-col bg-[#56584E] pb-7 px-[20px] pt-3 max-sm:pb-3 max-sm:items-center rounded-2xl shadow-md"
+          >
+            <motion.div {...imageAnimation}>
+              <Image
+                src="../assets/monte.svg"
+                alt="Montre Whatch 5 pro"
+                width={150}
+                height={150}
+                className="w-[150px] h-[150px] md:w-[180px] md:h-[180px] lg:w-[160px] lg:h-[160px] mt-3"
+              />
+            </motion.div>
+            <p className="text-white font-bold text-xl mt-3">
+              Montre <br /> Whatch 5 pro
+            </p>
+            <div className="flex items-center gap-4 mt-1">
+              <p className="font-bold text-lg text-black">200000</p>
+            </div>
+            <Button />
+          </motion.div>
+
+          {/* Carte 2 */}
+          <motion.div
+            key="card-2"
+            {...cardAnimation}
+            className="flex flex-col bg-[#82847D] px-[20px] pt-3 max-sm:pb-3 max-sm:items-center rounded-2xl shadow-md"
+          >
+            <motion.div {...imageAnimation}>
+              <Image
+                src="../assets/ordinateur.svg"
+                alt="Ordinateur HP"
+                width={150}
+                height={150}
+                className="w-[150px] h-[150px] md:w-[180px] md:h-[180px] lg:w-[160px] lg:h-[160px] mt-3"
+              />
+            </motion.div>
+            <p className="text-white font-bold text-xl mt-3">
+              Ordinateur <br /> HP
+            </p>
+            <div className="flex items-center gap-4 mt-1">
+              <p className="font-bold text-lg text-black">200000</p>
+            </div>
+            <Button />
+          </motion.div>
+
+          {/* Carte 3 */}
+          <motion.div
+            key="card-3"
+            {...cardAnimation}
+            className="flex flex-col bg-[#B4B5B0] px-[20px] pt-3 max-sm:pb-3 max-sm:items-center rounded-2xl shadow-md"
+          >
+            <motion.div {...imageAnimation}>
+              <Image
+                src="../assets/phone.svg"
+                alt="Téléphone Samsung A55"
+                width={150}
+                height={150}
+                className="w-[150px] h-[150px] md:w-[180px] md:h-[180px] lg:w-[160px] lg:h-[160px] mt-3"
+              />
+            </motion.div>
+            <p className="text-white font-bold text-xl mt-3">
+              Téléphone <br /> Samsung A55
+            </p>
+            <div className="flex items-center gap-4 mt-1">
+              <p className="font-bold text-lg text-black">200000</p>
+            </div>
+            <Button />
+          </motion.div>
+
+          {/* Carte 4 */}
+          <motion.div
+            key="card-4"
+            {...cardAnimation}
+            className="flex flex-col bg-[#F5F5F4] px-[20px] pt-3 max-sm:pb-3 max-sm:items-center rounded-2xl shadow-md"
+          >
+            <motion.div {...imageAnimation}>
+              <Image
+                src="/assets/phonejaune.svg"
+                alt="Samsung A55"
+                width={150}
+                height={150}
+                className="w-[150px] h-[150px] md:w-[180px] md:h-[180px] lg:w-[160px] lg:h-[160px] mt-3"
+              />
+            </motion.div>
+            <p className="text-black font-bold text-xl mt-3">
+              Samsung <br /> A55
+            </p>
+            <div className="flex items-center gap-4 mt-1">
+              <p className="font-bold text-lg text-black">510000</p>
+            </div>
+            <Button />
+          </motion.div>
         </div>
       </div>
 
-      <div class="max-md:w-full  max-2xl:w-[250px]   custom5:w-full bg-[#82847D] p-4 rounded-[20px] text-center w-[350px] h-[450px] hover:scale-105 transition-transform duration-300 shadow-lg">
-        <div class="flex justify-center">
-          <img
-            src="../assets/pc1.svg"
-            alt="Téléphone Samsung A55"
-            class="w-30 h-60 "
-          />
-        </div>
-        <div>
-          <p class="text-black font-bold">Ecran</p>
-          <p class="text-white font-bold text-lg">Samsung A55</p>
-          <p class="text-white text-xl mb-2">220 000</p>
-          <button class="bg-white hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-[10px] w-[212px] h-[36px]">
-            Commander
-          </button>
-        </div>
-      </div>
+      {/* Deuxième section de cartes */}
+      <div className="w-[95%] md:w-[90%] mb-8 m-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[4.1fr_4.1fr] gap-6">
+          {/* Carte 5 */}
+          <motion.div
+            key="card-5"
+            {...cardAnimation}
+            className="flex flex-col bg-[#5E8EA1] px-[20px] pt-3 max-sm:pb-3 max-sm:items-center rounded-2xl shadow-md"
+          >
+            <motion.div {...imageAnimation}>
+              <Image
+                src="../assets/ordinoir.svg"
+                alt="Ordinateur HP"
+                width={150}
+                height={150}
+                className="w-[150px] h-[150px] md:w-[180px] md:h-[180px] lg:w-[278px] lg:h-[200px] mt-3"
+              />
+            </motion.div>
+            <p className="text-white font-bold text-xl mt-3">
+              Ordinateur <br /> HP
+            </p>
+            <div className="flex items-center gap-4 mt-1">
+              <p className="font-bold text-lg text-white">200000</p>
+            </div>
+            <Button />
+          </motion.div>
 
-      <div class="max-lg:w-full max-md:w-full  max-2xl:w-[250px]   custom5:w-full mt-2 bg-[#B4B5B0] p-4 rounded-[20px] text-center w-[350px] h-[450px] hover:scale-105 transition-transform duration-300 shadow-lg">
-        <div class="flex justify-center">
-          <img
-            src="../assets/1372-samsung-galaxy-a55-5g-8-256gb-azul-libre-review-removebg-preview 2.svg"
-            alt="Téléphone Samsung A55"
-            class="w-30 h-60 "
-          />
-        </div>
-        <div>
-          <p class="text-black font-bold">Telephone</p>
-          <p class="text-white font-bold text-lg">Samsung A55</p>
-          <p class="text-white text-xl mb-2">220 000</p>
-          <button class="bg-white hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-[10px] w-[212px] h-[36px]">
-            Commander
-          </button>
-        </div>
-      </div>
-      <div class="max-md:w-full  max-xl:w-full  max-2xl:w-[250px]  custom2:w-[500px] custom3:w-full bg-[#F5F5F4] p-4 rounded-[20px]  text-center w-[350px] h-[450px] hover:scale-105 transition-transform duration-300 shadow-lg">
-        <div class="flex justify-center">
-          <img
-            src="../assets/phonejaune.svg"
-            alt="Téléphone Samsung A55"
-            class="w-30 h-60 "
-          />
-        </div>
-        <div>
-          <p class="text-black font-bold">Telephone</p>
-          <p class="text-white font-bold text-lg">Pochette A55</p>
-          <p class="text-white text-xl mb-2">8 000</p>
-          <button class="bg-white hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-[10px] w-[212px] h-[36px]">
-            Commander
-          </button>
+          {/* Carte 6 */}
+          <motion.div
+            key="card-6"
+            {...cardAnimation}
+            className="flex flex-col bg-[#076389] px-[20px] pt-3 pb-3 max-sm:pb-3 max-sm:items-center rounded-2xl shadow-md"
+          >
+            <motion.div {...imageAnimation}>
+              <Image
+                src="/assets/écran.svg"
+                alt="Ecran Plasma Samsung 32 pouces"
+                width={150}
+                height={150}
+                className="w-[150px] h-[150px] md:w-[180px] md:h-[180px] lg:w-[270px] lg:h-[200px] mt-3"
+              />
+            </motion.div>
+            <p className="text-white font-bold text-xl mt-3">
+              Ecran plasma <br /> Samsung 32 pouces
+            </p>
+            <div className="flex items-center gap-4 mt-1">
+              <p className="font-bold text-lg text-white">510000</p>
+            </div>
+            <Button />
+          </motion.div>
         </div>
       </div>
-      <div class="  max-md:flex-col max-md:w-full  max-2xl:w-full custom3:w-full custom4:w-full flex mt-3 justify-between items-center bg-[#5E8EA1] p-4 rounded-[20px] text-center w-[750px] h-[400px] hover:scale-105 transition-transform duration-300 shadow-lg min-300:max-600:w-[300px] min-300:max-600:flex-col">
-        <div>
-          <img
-            src="../assets/ordinoir.svg"
-            alt="Téléphone Samsung A55"
-            class="w-30 h-60 "
-          />
-        </div>
-        <div>
-          <p class="text-black font-bold">Telephone</p>
-          <p class="text-white font-bold text-lg">Pochette A55</p>
-          <p class="text-white text-xl mb-2">8 000</p>
-          <button class="bg-white hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-[10px] w-[212px] h-[36px]">
-            Commander
-          </button>
-        </div>
-      </div>
-      <div class="max-md:flex-col  max-md:w-full max-2xl:w-full  custom2:w-full custom3:w-full custom4:w-full bg-[#076389] mt-3 flex items-center justify-between p-4 rounded-[20px] text-center w-[750px] h-[400px] hover:scale-105 transition-transform duration-300 shadow-lg min-300:max-600:w-[300px] min-300:max-600:flex-col">
-        <div>
-          <img
-            src="../assets/écran.svg"
-            alt="Téléphone Samsung A55"
-            class="w-30 h-60 "
-          />
-        </div>
-        <div>
-          <p class="text-black font-bold">Telephone</p>
-          <p class="text-white font-bold text-lg">Pochette A55</p>
-          <p class="text-white text-xl mb-2">8 000</p>
-          <button class="bg-white hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-[10px] w-[212px] h-[36px]">
-            Commander
-          </button>
-        </div>
-      </div>
-      <div class="max-md:flex-col  max-md:w-full max-2xl:w-full custom3:w-full mt-3 relative bg-[#27282B] flex items-center justify-around  rounded-[20px] text-center w-[1548px] h-[400px] hover:scale-105 transition-transform duration-300 shadow-lg min-300:max-600:w-[300px] min-300:max-600:flex-col ">
-        <img
-          src="../assets/logoblanc.svg"
-          alt="Téléphone Samsung A55"
-          class="max-md:h-[100px] w-30 h-50 mt-20 ml-20 absolute -top-24 bottom-3/4 -left-20 right-3/4 min-300:max-600:w-20 min-300:max-600:-top-20 "
-        />
-        <div>
-          <img
-            src="../assets/baff.svg"
-            alt="Téléphone Samsung A55"
-            class="max-md:h-[100px] w-30 h-80 mt-20 ml-20 min-300:max-600:mt-0 min-300:max-600:ml-0 min-300:max-600:h-60"
-          />
-        </div>
-        <div class="flex flex-col  items-start">
-          <p class="text-white font-bold text-4xl font-black">baffles</p>
-          <p class="text-white font-bold ttext-4xl font-black">JBL PRO </p>
-          <p class="text-[#8CC63F] text-4xl font-black mb-2">13 000</p>
-          <button class="bg-white hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-[10px] w-[212px] h-[36px]">
-            Commander
-          </button>
-        </div>
-      </div>
-    </div>
     </div>
   );
 }
