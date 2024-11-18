@@ -1,134 +1,242 @@
-"use client"; // Assure-toi que le composant est rendu côté client
+import { Suspense, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
-import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation"; // Utilisation de useSearchParams au lieu de useRouter
-import Link from "next/link";
 
-export function Form() {
-  // Utilisation de useSearchParams pour récupérer les paramètres de l'URL
+
+export default function Form() {
   const searchParams = useSearchParams();
-  
-  // On définit des états pour gérer les données 'name' et 'price' depuis l'URL
-  const [name, setName] = useState('');
-  const [price, setPrice] = useState('');
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState("");
+  const [nom, setNom] = useState("");
+  const [prenom, setPrenom] = useState("");
+  const [numero_transaction, setNumeroTransaction] = useState("");
+  const [adresse, setAdresse] = useState("");
+  const [mode_livraison, setModeLivraison] = useState("express");
+  const [moyen_paiement, setMoyenPaiement] = useState("");
+  const [nombre_article, setNombreArticle] = useState(1);
+  const [isClient, setIsClient] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [facture, setFacture] = useState(null);
+  const [formulaire, setFormulaire] = useState(null);
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    // Une fois le composant monté côté client, on récupère les données
-    const productName = searchParams.get("name");
-    const productPrice = searchParams.get("price");
-    
-    if (productName && productPrice) {
-      setName(productName);
-      setPrice(productPrice);
+    setIsClient(true); // Mark the component as mounted on the client side
+  }, []);
+
+  // Only run searchParams hook on the client side
+  useEffect(() => {
+    if (isClient) {
+      const productName = searchParams.get("name");
+      const productPrice = searchParams.get("price");
+
+      if (productName && productPrice) {
+        setName(productName);
+        setPrice(productPrice);
+      }
     }
-  }, [searchParams]); // Déclenche lorsque les paramètres de l'URL changent
+  }, [searchParams, isClient]);
+
+  if (!isClient) return null; // Don't render until the component is client-side
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    if (!nom || !prenom || !numero_transaction || !adresse || !mode_livraison || !moyen_paiement) {
+      setError("Tous les champs doivent être remplis !");
+      setIsSubmitting(false);
+      return;
+    }
+
+    const formData = {
+      nom,
+      prenom,
+      numero_transaction,
+      adresse,
+      mode_livraison,
+      moyen_paiement,
+      nom_article: name,
+      prix_article: price,
+      nombre_article: nombre_article,
+    };
+
+    try {
+      const res = await fetch("https://ecommerce-xxz7.onrender.com/api/formulaire", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await res.json();
+      if (res.ok) {
+        alert(result.message || "Formulaire envoyé avec succès !");
+        if (result.facture) {
+          setFacture(result.facture);
+        }
+        if (result.formulaire) {
+          setFormulaire(result.formulaire);
+        }
+      } else {
+        setError(result.message || "Une erreur s'est produite.");
+      }
+    } catch (error) {
+      setError("Erreur lors de l'envoi des données.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="w-full flex flex-col items-center">
       <h1 className="text-lg md:text-2xl mt-6 font-bold text-[#3883A2]">
         Formulaire de commande
       </h1>
-      <form className="md:flex w-[90%] mt-4 m-auto md:justify-between max-sm:items-center max-sm:flex-col gap-4">
-        {/* Premier bloc de saisie */}
-        <div className="md:w-[50%] w-full md:pl-8 gap-4 pl-2 pr-2 flex flex-col">
-          <div className="flex flex-col gap-2">
-            <label htmlFor="firstName">Nom</label>
-            <input
-              className="border-x-[3px] pl-4 bg-transparent border-y-[3px] md:w-[90%] md:h-14 h-8 w-full rounded-md border-[#3883A2]"
-              type="text"
-              id="firstName"
-              name="firstName"
-            />
-          </div>
-          <div className="flex flex-col gap-2">
-            <label htmlFor="firstName">Prénom</label>
-            <input
-              className="border-x-[3px] pl-4 bg-transparent border-y-[3px] md:w-[90%] w-full md:h-14 h-8 rounded-md border-[#3883A2]"
-              type="text"
-              id="firstName"
-              name="firstName"
-            />
-          </div>
+      <form
+         onSubmit={handleSubmit}
+         className="md:flex w-[90%] mt-4 m-auto md:justify-between max-sm:items-center max-sm:flex-col gap-4"
+       >
+         <div className="md:w-[50%] w-full md:pl-8 gap-4 pl-2 pr-2 flex flex-col">
+           <div className="flex flex-col gap-2">
+             <label htmlFor="firstName">nom</label>
+             <input
+               type="text"
+               id="firstName"
+               name="nom"
+               htmlFor="nom"
+               value={nom}
+               onChange={(e) => setNom(e.target.value)}
+               className="border-x-[3px] pl-4 bg-transparent border-y-[3px] md:w-[90%] md:h-14 h-8 w-full rounded-md border-[#3883A2]"
+             />
+           </div>
+           <div className="flex flex-col gap-2">
+             <label htmlFor="lastName">prenom</label>
+             <input
+               type="text"
+               id="lastName"
+               name="prenom"
+               htmlFor="prenom"
+               value={prenom}
+               onChange={(e) => setPrenom(e.target.value)}
+               className="border-x-[3px] pl-4 bg-transparent border-y-[3px] md:w-[90%] w-full md:h-14 h-8 rounded-md border-[#3883A2]"
+             />
+           </div>
+           <div>
+             <label htmlFor="productName">Nom du produit</label>
+             <input
+               type="text"
+               id="productName"
+               name="productName"
+               value={name || ""}
+               readOnly
+               className="border-x-[3px] pl-4 bg-transparent border-y-[3px] md:w-[90%] w-full md:h-14 h-8 rounded-md border-[#3883A2]"
+             />
+           </div>
+           <div>
+             <label htmlFor="productPrice">Prix</label>
+             <input
+               type="text"
+               id="productPrice"
+               name="productPrice"
+               value={price || ""}
+               readOnly
+               className="border-x-[3px] pl-4 bg-transparent border-y-[3px] md:w-[90%] w-full md:h-14 h-8 rounded-md border-[#3883A2]"
+             />
+           </div>
+           <div className="flex flex-col gap-2">
+             <label htmlFor="transactionNumber">
+               Numéro de transaction Airtel Money/Mobi Cash
+             </label>
+             <input
+               type="text"
+               id="transactionNumber"
+               name="numero_transaction"
+               htmlFor="numero_transaction"
+               value={numero_transaction}
+               onChange={(e) => setNumeroTransaction(e.target.value)}
+               className="border-x-[3px] pl-4 bg-transparent border-y-[3px] md:w-[90%] w-full md:h-14 h-8 rounded-md border-[#3883A2]"
+             />
+           </div>
+           <div className="flex flex-col gap-2">
+             <label htmlFor="address">Adresse</label>
+             <input
+               type="text"
+               id="address"
+               name="adresse"
+               htmlFor="adresse"
+               value={adresse}
+               onChange={(e) => setAdresse(e.target.value)}
+               className="border-x-[3px] pl-4 bg-transparent border-y-[3px] md:w-[90%] w-full md:h-14 h-8 rounded-md border-[#3883A2]"
+             />
+           </div>
+         </div>
+         <div className="md:w-[50%] w-full gap-4 flex max-sm:pl-2 max-sm:pr-2 flex-col">
+           <div className="flex flex-col gap-2">
+             <label htmlFor="deliveryMode">Mode de livraison</label>
+             <select
+               id="deliveryMode"
+               name="mode_livraison"
+               htmlFor="mode_livraison"
+               value={mode_livraison}
+               onChange={(e) => setModeLivraison(e.target.value)}
+               className="border-x-[3px] pl-4 bg-transparent border-y-[3px] md:w-[90%] w-full md:h-14 h-8 rounded-md border-[#3883A2]"
+             >
+               <option value="express">express</option>
+               <option value="retrait en magasin">retrait en magasin</option>
+             </select>
+           </div>
+           <div className="flex flex-col gap-2">
+             <label htmlFor="paymentMethod">Moyen de paiement</label>
+             <select
+               id="paymentMethod"
+               name="moyen_paiement"
+               value={moyen_paiement}
+               onChange={(e) => setMoyenPaiement(e.target.value)}
+               className="border-x-[3px] pl-4 bg-transparent border-y-[3px] md:w-[90%] w-full md:h-14 h-8 rounded-md border-[#3883A2]"
+             >
+               <option value="">Sélectionner</option>
+               <option value="mobil cash">mobil cash</option>
+               <option value="airtel money">airtel money</option>
+               <option value="espèces">espèces</option>
+             </select>
+           </div>
+         </div>
+       </form>
 
-          <div>
-            <label htmlFor="productName">Nom du produit</label>
-            <input
-             className="border-x-[3px] pl-4 bg-transparent border-y-[3px] md:w-[90%] w-full md:h-14 h-8 rounded-md border-[#3883A2]"
-              type="text"
-              id="productName"
-              name="productName"
-              value={name || ''}
-              readOnly
-            />
-          </div>
+      <button
+        onClick={handleSubmit}
+        disabled={isSubmitting}
+        className={`bg-[#3883A2] text-white w-[123px] text-center rounded-md mt-8 mb-8 h-9 ${
+          isSubmitting ? "opacity-50 cursor-not-allowed" : "hover:bg-[#2e6f81]"
+        }`}
+      >
+        {isSubmitting ? "Envoi..." : "Soumettre"}
+      </button>
 
-          <div className="flex flex-col ">
-            <label htmlFor="productPrice">Prix</label>
-            <input
-             className="border-x-[3px] pl-4 bg-transparent border-y-[3px] md:w-[90%] w-full md:h-14 h-8 rounded-md border-[#3883A2]"
-              type="text"
-              id="productPrice"
-              name="productPrice"
-              value={price || ''}
-              readOnly
-            />
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <label htmlFor="transactionNumber">Numéro de transaction Airtel Money/Mobi Cash</label>
-            <input
-              className="border-x-[3px] pl-4 bg-transparent border-y-[3px] md:w-[90%] w-full md:h-14 h-8 rounded-md border-[#3883A2]"
-              type="text"
-              id="transactionNumber"
-              name="transactionNumber"
-            />
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <label htmlFor="address">Adresse</label>
-            <input
-              className="border-x-[3px] pl-4 bg-transparent border-y-[3px] md:w-[90%] w-full md:h-14 h-8 rounded-md border-[#3883A2]"
-              type="text"
-              id="address"
-              name="address"
-            />
+      {/* Display facture and formulaire */}
+      {facture && formulaire && (
+          <div className="absolute inset-0 flex justify-center items-center bg-white bg-opacity-50 backdrop-blur-md z-20 min-h-screen">
+          <div className="bg-white p-6 rounded-lg shadow-xl max-w-lg w-full">
+            <h2 className="text-xl font-bold text-center text-[#3883A2]">Votre Facture</h2>
+            <div className="mt-4">
+              <p><strong>Nom:</strong> {formulaire.nom}</p>
+              <p><strong>Prénom:</strong> {formulaire.prenom}</p>
+              <p><strong>Numéro de transaction:</strong> {formulaire.numero_transaction}</p>
+              <p><strong>Adresse de livraison:</strong> {formulaire.adresse}</p>
+              <p><strong>Mode de livraison:</strong> {formulaire.mode_livraison}</p>
+              <p><strong>Moyen de paiement:</strong> {formulaire.moyen_paiement}</p>
+              <p><strong>Produit:</strong> {facture.nom_article}</p>
+              <p><strong>Prix Unitaire:</strong> {facture.prix_article} FCFA</p>
+              <p><strong>Quantité:</strong> {facture.nombre_article}</p>
+              <p><strong>Frais de livraison:</strong> {facture.livraison} FCFA</p>
+              <p><strong>Total à payer:</strong> {facture.total} FCFA</p>
+              <p><strong>Date de la transaction:</strong> {new Date(facture.date_transaction).toLocaleString()}</p>
+            </div>
           </div>
         </div>
-
-        {/* Deuxième bloc de saisie */}
-        <div className="md:w-[50%] w-full gap-4 flex max-sm:pl-2 max-sm:pr-2 flex-col">
-          <div className="flex flex-col gap-2">
-            <label htmlFor="deliveryMode">Mode de livraison</label>
-            <select
-              className="border-x-[3px] pl-4 bg-transparent border-y-[3px] md:w-[90%] w-full md:h-14 h-8 rounded-md border-[#3883A2]"
-              id="deliveryMode"
-              name="deliveryMode"
-            >
-              <option disabled>Rapide</option>
-              <option value="standard">Livraison standard</option>
-              <option value="express">Express</option>
-            </select>
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <label htmlFor="paymentMethod">Moyen de paiement</label>
-            <select
-              className="border-x-[3px] pl-4 bg-transparent border-y-[3px] md:w-[90%] w-full md:h-14 h-8 rounded-md border-[#3883A2]"
-              id="paymentMethod"
-              name="paymentMethod"
-            >
-              <option disabled>Différents modes</option>
-              <option value="airtel">Airtel Money</option>
-              <option value="mobi">Mobi Cash</option>
-            </select>
-          </div>
-        </div>
-      </form>
-
-      {/* Bouton soumettre */}
-      <Link href="../../redirection" className="bg-[#3883A2] text-white w-[123px] text-center rounded-md mt-8 mb-8 h-9">
-        Soumettre
-      </Link>
+      )}
     </div>
   );
 }

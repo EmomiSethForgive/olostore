@@ -47,7 +47,7 @@
 //               height={42}
 //               className={`w-[150px] h-[150px] md:w-[250px] md:h-[250px] lg:w-[350px] lg:h-[350px] md:pt-10 pt-2 hover:scale-110 transition-transform duration-300 ${styles.Image}`}
 //             />
-//             </div> 
+//             </div>
 //             <div>
 //           <Image
 //               src="/assets/manette.svg"
@@ -147,8 +147,6 @@
 //     </div>
 //   );
 // }
-
-
 
 "use client";
 
@@ -264,7 +262,9 @@ export function Section1() {
             className={`w-[30px] h-[30px] md:w[42px] md:h-[42px] ${styles.Image}`}
           />
           <div>
-            <h1 className="md:text-base text-sm font-semibold">Livraison gratuite</h1>
+            <h1 className="md:text-base text-sm font-semibold">
+              Livraison gratuite
+            </h1>
             <p className="md:text-base text-sm font-semibold">15 000 XAF</p>
           </div>
         </div>
@@ -277,7 +277,9 @@ export function Section1() {
             className={`w-[30px] h-[30px] md:w[42px] md:h-[42px] ${styles.Image}`}
           />
           <div>
-            <h1 className="md:text-base text-sm font-semibold">100% rembourser</h1>
+            <h1 className="md:text-base text-sm font-semibold">
+              100% rembourser
+            </h1>
             <p className="md:text-base text-sm font-semibold">10 jours</p>
           </div>
         </div>
@@ -295,31 +297,22 @@ export function Section1() {
         </div>
         <div className="flex items-center gap-2 md:gap-4 lg:gap-5">
           <Image
-            src="/assets/container.png"
+            src="/assets/Container.png"
             alt="Search Icon"
             width={42}
             height={42}
             className={`w-[30px] h-[30px] md:w[42px] md:h-[42px] ${styles.Image}`}
           />
           <div>
-            <h1 className="md:text-base text-sm font-semibold">Paiement 100% Sécurisé</h1>
+            <h1 className="md:text-base text-sm font-semibold">
+              Paiement 100% Sécurisé
+            </h1>
           </div>
         </div>
       </div>
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
 
 // "use client";
 // import { useState, useEffect } from "react";
@@ -383,4 +376,3 @@ export function Section1() {
 //     </div>
 //   );
 // }
-

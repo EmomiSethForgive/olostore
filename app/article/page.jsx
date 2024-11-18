@@ -44,14 +44,6 @@ export default function Article() {
   if (!product) return <div>Produit introuvable.</div>;
 
   return (
-    <div className="w-full h-screen flex flex-col">
-  <Header />
-
-  <div
-    className="w-[90%] max-w-6xl m-auto mt-2 md:mt-1 lg:mt-3 py-8 bg-[#E9F2F2] border rounded-2xl md:mb-1 lg:mb-3 mb-8 lg:pr-20 lg:pl-10 flex flex-col lg:flex-row gap-8"
-    style={{ boxShadow: "0 0 10px 0 #3883A2" }}
-  >
-    {/* Section Image */}
     <div className="w-full lg:w-1/2 flex justify-center items-center">
       <Image
         className="bg-cover max-w-[90%] md:max-w-[75%] lg:max-w-[400px] lg:h-auto"
@@ -125,10 +117,9 @@ export default function Article() {
             >
               Commander
             </Link>
-            
             <a
                 href={`https://wa.me/+24162787288?text=${encodeURIComponent(
-                  "Bonjour, je suis intér !"
+                  "Bonjour, je suis intéressé par votre produit !"
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -142,8 +133,7 @@ export default function Article() {
                   width={20}
                   height={20}
                 />
-              </a>
-
+            </a>
             <div className="flex gap-1 items-center">
               <Image
                 className="w-5 h-5 bg-cover"
@@ -162,6 +152,5 @@ export default function Article() {
 
   <Footer />
 </div>
-
   );
 }
