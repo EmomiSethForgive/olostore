@@ -5,7 +5,7 @@ export function Section4() {
   return (
     <div className="w-full">
       <div className="w-[90%] m-auto ">
-        <div className="md:flex bg-[#27282B] max-sm:gap-4 max-sm:px-2 rounded-3xl md:justify-center lg:justify-between py-3 mb-8">
+        <div className="md:flex bg-[#27282B] max-sm:gap-4 max-sm:px-2 max-sm:items-center rounded-3xl md:justify-center lg:justify-between py-3 mb-8">
           <div className="md:flex items-center">
           <div className="">
             <Image

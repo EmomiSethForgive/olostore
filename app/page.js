@@ -9,7 +9,7 @@ import { Ogou } from "./components/acceuil/Ogou";
 import { Footer } from "./components/Footer";
 import { Section4 } from "./components/acceuil/Section4";
 import { Apropos } from "./components/acceuil/Apropos";
-// import { MapEmbed } from "./components/acceuil/MapEmbed";
+import { MapEmbed } from "./components/acceuil/MapEmbed";
 
 export default function Home() {
   return (
@@ -21,7 +21,7 @@ export default function Home() {
     <Section3 />
     <Section4 />
     <Apropos />
-    {/* <MapEmbed /> */}
+    <MapEmbed />
     <Footer />
     </>
   );
