@@ -191,8 +191,8 @@
 
 import Image from "next/image";
 import { Button } from "./Button";
-import { motion } from "framer-motion";
-
+import { motion } from "framer-motion"              ;
+import Link from "next/link";
 export function Section2() {
   // Définir l'animation des cartes
   const cardAnimation = {
@@ -226,15 +226,19 @@ export function Section2() {
             className="flex flex-col bg-[#3883A2] px-[20px] pt-3 pb-4 max-sm:items-center rounded-2xl shadow-md"
           >
             <motion.div {...imageAnimation} className="mt-3">
-              <Image src="/assets/phone.svg" alt="Téléphone Samsung A55" width={150} height={150} />
+              <Image src="/assets/monte.svg" alt="Téléphone Samsung A55" width={150} height={150} />
             </motion.div>
-            <motion.p className="text-white font-bold text-xl mt-3">Téléphone Samsung A55</motion.p>
+            <motion.p className="text-white font-bold text-xl mt-3">Montre</motion.p>
             <motion.div className="flex items-center gap-4 mt-1">
               <p className="font-bold text-lg text-white">200000</p>
               <Image src="/assets/argent.svg" alt="Argent Icon" width={40} height={30} />
             </motion.div>
             <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.3 }}>
-              <Button />
+            <Link
+                  href={`/article/1                     `} 
+                 
+                ><Button />
+                </Link> 
             </motion.div>
           </motion.div>
 
@@ -253,7 +257,11 @@ export function Section2() {
               <Image src="/assets/argent.svg" alt="Argent Icon" width={40} height={30} />
             </motion.div>
             <motion.div whileHover={{ scale: 1.2 }} transition={{ duration: 0.3 }}>
-              <Button />
+             <Link
+                  href={`/article/2`} 
+                 
+                ><Button />
+                </Link> 
             </motion.div>
           </motion.div>
 
@@ -299,7 +307,11 @@ export function Section2() {
               />
             </div>
             <div className="shadow-mda transition transform hover:scale-105 duration-300">
-              <Button />
+               <Link
+                  href={`/article/2`} 
+                 
+                ><Button />
+                </Link> 
             </div>
           </div>
 
@@ -330,7 +342,7 @@ export function Section2() {
              <div className="flex flex-col bg-[#EAEAEA] px-[20px] pt-3 max-sm:items-center pb-2 rounded-2xl  shadow-md lg:col-span-1 transition transform hover:scale-105 duration-300">
             <div>
               <Image
-                src="/assets/herpotte.svg"
+                src="/assets/ordinoir.svg"
                 alt="Ordinateur Rouge"
                 width={200}
                 height={150}
@@ -351,7 +363,11 @@ export function Section2() {
               />
             </div>
             <div className="shadow-mda transition transform hover:scale-105 duration-300">
-              <Button />
+            <Link
+                  href={`/article/5`} 
+                 
+                ><Button />
+                </Link> 
             </div>
           </div>
 
@@ -370,7 +386,11 @@ export function Section2() {
               <Image src="/assets/argent.svg" alt="Argent Icon" width={40} height={30} />
             </motion.div>
             <motion.div whileHover={{ scale: 1.2 }} transition={{ duration: 0.3 }}>
-              <Button />
+            <Link
+                  href={`/article/7`} 
+                 
+                ><Button />
+                </Link> 
             </motion.div>
           </motion.div>
 
@@ -381,7 +401,7 @@ export function Section2() {
             className="flex flex-col bg-[#2E2E2E] px-[20px] pt-3 pb-4 max-sm:items-center rounded-2xl shadow-md"
           >
             <motion.div {...imageAnimation} className="mt-3">
-              <Image src="/assets/phone.svg" alt="Ordinateur HP i-core5" width={150} height={150} />
+              <Image src="/assets/pc1.svg" alt="Ordinateur HP i-core5" width={150} height={150} />
             </motion.div>
             <motion.p className="text-white font-bold text-xl mt-3">Ordinateur HP i-core5</motion.p>
             <motion.div className="flex items-center gap-4 mt-1">
@@ -389,7 +409,11 @@ export function Section2() {
               <Image src="/assets/argent.svg" alt="Argent Icon" width={40} height={30} />
             </motion.div>
             <motion.div whileHover={{ scale: 1.2 }} transition={{ duration: 0.3 }}>
-              <Button />
+              <Link
+                  href={`/article/9`} 
+                 
+                ><Button />
+                </Link> 
             </motion.div>
           </motion.div>
         </div>

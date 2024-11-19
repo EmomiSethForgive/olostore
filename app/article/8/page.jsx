@@ -46,122 +46,121 @@ export default function Article() {
 
   return (
     <div className="w-full h-screen flex flex-col">
-      <Header />
+  <Header />
 
-      <div
-        className="w-[80%] m-auto mt-2 md:mt-1 lg:mt-3 py-8 bg-[#E9F2F2] border rounded-2xl md:mb-1 lg:mb-3 mb-8 lg:pr-20 lg:pl-10  md:flex md:justify-around   max-sm:justify-center max-sm:items-center md:pl-10"
-        style={{ boxShadow: "0 0 10px 0 #3883A2" }}
-      >
-        {/* 1premier */}
-        <div className="w-[50%] flex flex-col justify-center items-center">
-          <div className=" flex flex-col relative items-start justify-center items-center">
-            <div className="w-full flex justify-center items-center">
-              <Image
-                className=" w-[400px] h-[300px] bg-cover object-cover md:w-[300px] md:h-[300px] "
-                src={product.image_url}
-                alt="logo"
-                width={100}
-                height={100}
-                //   priority
-              />
-            </div>
+  <div
+    className="w-[90%] max-w-6xl m-auto mt-2 md:mt-1 lg:mt-3 py-8 bg-[#E9F2F2] border rounded-2xl md:mb-1 lg:mb-3 mb-8 lg:pr-20 lg:pl-10 flex flex-col lg:flex-row gap-8"
+    style={{ boxShadow: "0 0 10px 0 #3883A2" }}
+  >
+    {/* Section Image */}
+    <div className="w-full lg:w-1/2 flex justify-center items-center">
+      <Image
+        className="bg-cover max-w-[90%] md:max-w-[75%] lg:max-w-[400px] lg:h-auto"
+        src={product.image_url}
+        alt={`Image de ${product.name}`}
+        width={400}
+        height={300}
+      />
+    </div>
+
+    {/* Section Détails */}
+    <div className="w-full lg:w-1/2 flex flex-col gap-4 border-x-2 border-y-2 rounded-lg px-4 py-4 md:px-6 border-[#076389]">
+      <div>
+        <h2 className="text-[#1B7FED] font-bold text-lg">
+          {product.name}
+        </h2>
+        <p className="text-[#1B7FED] mt-4 text-sm md:text-base">
+          CARACTÉRISTIQUES PRINCIPALES :
+        </p>
+        <p>{product.description}</p>
+      </div>
+      <div className="flex gap-4">
+        <p className="text-[#1B7FED] font-bold text-sm md:text-base">
+          {product.price}
+        </p>
+      </div>
+
+      {/* Section Couleurs */}
+      <div className="flex flex-col gap-3">
+        <div className="flex gap-4 items-center">
+          <p className="text-sm md:text-base">Couleurs :</p>
+          <div className="flex gap-2 py-1 px-1 rounded-md border-2 border-[#3883A2]">
+            <Image
+              className="w-6 h-6 bg-cover"
+              src="/assets/point1.svg"
+              alt="Couleur 1"
+              width={24}
+              height={24}
+            />
+            <Image
+              className="w-6 h-6 bg-cover"
+              src="/assets/point2.svg"
+              alt="Couleur 2"
+              width={24}
+              height={24}
+            />
+            <Image
+              className="w-6 h-6 bg-cover"
+              src="/assets/point3.svg"
+              alt="Couleur 3"
+              width={24}
+              height={24}
+            />
           </div>
         </div>
-        {/* deuxième */}
-        <div className="w-[50%] flex flex-col gap-4 max-sm:m-auto border-x-2 max-sm:mt-4 border-y-2 rounded-lg px-4 py-4 md:px-1 md:pl-2 md:pr-2 border-[#076389] ">
-          <div>
-            <h2 className="text-[#1B7FED] font-bold text-lg flex max-sm:mt-4 ">
-              {product.name}
-            </h2>
-            <p className="text-[#1B7FED] mt-4 text-xs md:text-sm">
-              CARACTÉRISTIQUES PRINCIPALES :
-            </p>
-            {product.description}
-          </div>
-          <div className="flex gap-4">
-            <p className="text-[#1B7FED] font-bold md:text-base text-sm">
-              {product.price}
-            </p>
-          </div>
-          <div className="flex flex-col gap-3">
-            <div className="flex gap-6 items-center">
-              <p>couleurs</p>
-              <div className="flex gap-2 rounded-md md:border-x-4 md:border-y-4 py-1 px-1 md:border-[#3883A2]">
-                <Image
-                  className="w-[20px] h-[20px] bg-cover object-cover"
-                  src="/assets/point1.svg"
-                  alt="logo"
-                  width={100}
-                  height={100}
-                  //   priority
-                />
-                <Image
-                  className="w-[20px] h-[20px] bg-cover object-cover"
-                  src="/assets/point2.svg"
-                  alt="logo"
-                  width={100}
-                  height={100}
-                  //   priority
-                />
-                <Image
-                  className="w-[20px] h-[20px]  bg-cover object-cover"
-                  src="/assets/point3.svg"
-                  alt="logo"
-                  width={100}
-                  height={100}
-                  //   priority
-                />
-              </div>
-            </div>
-            <div>
-              <div>
-                <div className="flex gap-1 mb-2">
-                  <p className="text-sm">Prix Total :</p>
-                  <p className="text-[#1B7FED] font-bold"> {product.price}</p>
-                  <p className="flex text-start">Tax : incl.</p>
-                </div>
-                <div className="flex gap-3 items-center">
-                <Link
-                  href={{
-                    pathname: "/formulaire",
-                    query: { name: product.name, price: product.price }
-                  }}
-                  className="text-white md:py-2 py-1 bg-black md:px-10 px-7 rounded-md"
-                >
-                  Commander
-                </Link>
 
-                  <button className="text-white md:py-2 flex gap-4 py-1 items-center bg-[#3883A2] md:px-6 px-4 rounded-md">
-                    commander{" "}
-                    <span>
-                      <Image
-                        className="w-[18px] h-[18px] bg-cover object-cover"
-                        src="/assets/wha.svg"
-                        alt="logo"
-                        width={100}
-                        height={100}
-                        //   priority
-                      />
-                    </span>
-                  </button>
-                  <div className="flex gap-1 items-center">
-                    <Image
-                      className="w-[20px] h-[20px] bg-cover object-cover"
-                      src="/assets/coeur.svg"
-                      alt="logo"
-                      width={100}
-                      height={100}
-                      //   priority
-                    />
-                    <p>0</p>
-                  </div>
-                </div>
-              </div>
+        {/* Section Prix et Boutons */}
+        <div className="flex flex-col gap-3">
+          <div className="flex gap-2 items-center">
+            <p className="text-sm">Prix Total :</p>
+            <p className="text-[#1B7FED] font-bold">{product.price}</p>
+            <p className="text-xs">(Tax incl.)</p>
+          </div>
+          <div className="flex flex-wrap gap-3 items-center">
+            <Link
+              href={{
+                pathname: "/formulaire",
+                query: { name: product.name, price: product.price },
+              }}
+              className="bg-black text-white py-2 px-6 rounded-md text-center"
+            >
+              Commander
+            </Link>
+            <a
+                href={`https://wa.me/+24162787288?text=${encodeURIComponent(
+                  "Bonjour, je suis intéressé par votre produit !"
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#3883A2] text-white py-2 px-6 rounded-md flex gap-2 items-center"
+              >
+                Commander
+                <Image
+                  className="w-5 h-5 bg-cover"
+                  src="/assets/wha.svg"
+                  alt="Commander via WhatsApp"
+                  width={20}
+                  height={20}
+                />
+              </a>
+            <div className="flex gap-1 items-center">
+              <Image
+                className="w-5 h-5 bg-cover"
+                src="/assets/coeur.svg"
+                alt="Ajouter aux favoris"
+                width={20}
+                height={20}
+              />
+              <p>0</p>
             </div>
           </div>
         </div>
       </div>
-      <Footer />
     </div>
+  </div>
+
+  <Footer />
+</div>
+
   );
 }

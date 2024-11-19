@@ -5,6 +5,7 @@
 import Image from "next/image";
 import { Button } from "./Button";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export function Section3() {
   // Définir l'animation des cartes
@@ -51,7 +52,11 @@ export function Section3() {
             <div className="flex items-center gap-4 mt-1">
               <p className="font-bold text-lg text-black">200000</p>
             </div>
-            <Button />
+            <Link
+                  href={`/article/1`} 
+                 
+                ><Button />
+                </Link> 
           </motion.div>
 
           {/* Carte 2 */}
@@ -75,7 +80,11 @@ export function Section3() {
             <div className="flex items-center gap-4 mt-1">
               <p className="font-bold text-lg text-black">200000</p>
             </div>
-            <Button />
+            <Link
+                  href={`/article/9`} 
+                 
+                ><Button />
+                </Link> 
           </motion.div>
 
           {/* Carte 3 */}
@@ -86,7 +95,7 @@ export function Section3() {
           >
             <motion.div {...imageAnimation}>
               <Image
-                src="../assets/phone.svg"
+                src="../assets/manette.svg"
                 alt="Téléphone Samsung A55"
                 width={150}
                 height={150}
@@ -99,7 +108,11 @@ export function Section3() {
             <div className="flex items-center gap-4 mt-1">
               <p className="font-bold text-lg text-black">200000</p>
             </div>
-            <Button />
+            <Link
+                  href={`/article/7`} 
+                 
+                ><Button />
+                </Link> 
           </motion.div>
 
           {/* Carte 4 */}
@@ -123,7 +136,11 @@ export function Section3() {
             <div className="flex items-center gap-4 mt-1">
               <p className="font-bold text-lg text-black">510000</p>
             </div>
-            <Button />
+            <Link
+                  href={`/article/5`} 
+                 
+                ><Button />
+                </Link> 
           </motion.div>
         </div>
       </div>
@@ -152,7 +169,11 @@ export function Section3() {
             <div className="flex items-center gap-4 mt-1">
               <p className="font-bold text-lg text-white">200000</p>
             </div>
-            <Button />
+            <Link
+                  href={`/article/3`} 
+                 
+                ><Button />
+                </Link> 
           </motion.div>
 
           {/* Carte 6 */}
