@@ -14,20 +14,18 @@ export default function Article() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Vérifiez que l'ID est défini avant d'effectuer la requête
-
     const fetchProduct = async () => {
       try {
-        const url =
-          "https://api.allorigins.win/get?url=" +
-          encodeURIComponent(
-            `https://ecommerce-xxz7.onrender.com/api/produits/3`
-          ); // Assurez-vous que l'URL utilise l'ID
-        const response = await fetch(url);
+        const response = await fetch("https://ecommerce-xxz7.onrender.com/api/produits/3");
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+  
         const data = await response.json();
-        const parsedData = JSON.parse(data.contents);
-        console.log(parsedData);
-        setProduct(parsedData);
+        console.log(data); // Vérifiez la structure de `data` dans la console
+        
+        // Si `data` est déjà un objet, utilisez-le directement
+        setProduct(data.contents || data); // Adaptez selon la structure de votre réponse
       } catch (error) {
         console.error("Erreur de récupération du produit :", error);
         setError("Impossible de charger les détails du produit.");
@@ -35,10 +33,10 @@ export default function Article() {
         setLoading(false);
       }
     };
-
+  
     fetchProduct();
   }, []);
-
+  
   if (loading) return <div>Chargement des détails du produit...</div>;
   if (error) return <div>{error}</div>;
   if (!product) return <div>Produit introuvable.</div>;

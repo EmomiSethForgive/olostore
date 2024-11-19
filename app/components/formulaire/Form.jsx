@@ -228,7 +228,7 @@ export default function Form() {
               <p><strong>Mode de livraison:</strong> {formulaire.mode_livraison}</p>
               <p><strong>Moyen de paiement:</strong> {formulaire.moyen_paiement}</p>
               <p><strong>Produit:</strong> {facture.nom_article}</p>
-              <p><strong>Prix Unitaire:</strong> {facture.prix_article} FCFA</p>
+              <p><strong>Prix Unitaire:</ strong> {facture.prix_article} FCFA</p>
               <p><strong>Quantité:</strong> {facture.nombre_article}</p>
               <p><strong>Frais de livraison:</strong> {facture.livraison} FCFA</p>
               <p><strong>Total à payer:</strong> {facture.total} FCFA</p>

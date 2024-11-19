@@ -5,32 +5,34 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const Articles = () => {
-  const [datas, setDatas] = useState([]);
+  const [datas, setDatas] = useState([]); // Utilisation de `setDatas` pour l'état principal
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   // Effect pour récupérer les données de l'API
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchProduct = async () => {
       try {
-        const url =
-          "https://api.allorigins.win/get?url=" +
-          encodeURIComponent("https://ecommerce-xxz7.onrender.com/api/produits");
-        const response = await fetch(url);
+        const response = await fetch("https://ecommerce-xxz7.onrender.com/api/produits");
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
         const data = await response.json();
-        const parsedData = JSON.parse(data.contents); // Décoder les données
-        console.log(parsedData); // Voir les données dans la console pour confirmation
-        setDatas(parsedData); // Mettre à jour l'état avec les données récupérées
+        console.log(data); // Vérifiez la structure de `data` dans la console
+
+        // Mettre à jour l'état `datas` avec les données récupérées
+        setDatas(data.contents || data); 
       } catch (error) {
-        console.error("Error fetching data:", error);
-        setError("Une erreur est survenue lors de la récupération des produits.");
+        console.error("Erreur de récupération des produits :", error);
+        setError("Impossible de charger les produits.");
       } finally {
         setLoading(false); // Arrêter le chargement
       }
     };
 
-    fetchData(); // Appeler la fonction fetchData
-  }, []); // Dépendances vide pour appeler cette fonction seulement au montage
+    fetchProduct(); // Appeler la fonction pour récupérer les produits
+  }, []); 
 
   // Si le contenu est en train de charger
   if (loading) {
