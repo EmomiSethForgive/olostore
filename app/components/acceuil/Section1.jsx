@@ -153,6 +153,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "../../style/section1.module.css";
+import Link from "next/link";
 
 export function Section1() {
   const images = [
@@ -213,13 +214,18 @@ export function Section1() {
                 Vos articles <br /> à porter <br /> de main
               </p>
             </div>
-            <button
-              className={`bg-white px-3 md:w-60 md:py-1 md:text-xl rounded-md hover:bg-gray-300 transition-opacity duration-1000 ${
-                showButton ? "opacity-100" : "opacity-0"
-              }`}
+            <Link
+              href={`/produit`} // Lien dynamique vers chaque produit avec son ID
+             
             >
-              Commander
-            </button>
+              <button
+                className={`bg-white px-3 md:w-60 md:py-1 md:text-xl rounded-md hover:bg-gray-300 transition-opacity duration-1000 ${
+                  showButton ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                Commander
+              </button>
+            </Link>
           </div>
           {/* Carrousel des images */}
           <div className="relative w-[150px] h-[150px] md:w-[250px] md:h-[250px] lg:w-[350px] lg:h-[350px] overflow-hidden">

@@ -16,16 +16,16 @@ export default function Article() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const url =
-          "https://api.allorigins.win/get?url=" +
-          encodeURIComponent(
-            `https://ecommerce-xxz7.onrender.com/api/produits/1`
-          ); // Assurez-vous que l'URL utilise l'ID
-        const response = await fetch(url);
+        const response = await fetch("https://ecommerce-xxz7.onrender.com/api/produits/1");
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+  
         const data = await response.json();
-        const parsedData = JSON.parse(data.contents);
-        console.log(parsedData);
-        setProduct(parsedData);
+        console.log(data); // Vérifiez la structure de `data` dans la console
+        
+        // Si `data` est déjà un objet, utilisez-le directement
+        setProduct(data.contents || data); // Adaptez selon la structure de votre réponse
       } catch (error) {
         console.error("Erreur de récupération du produit :", error);
         setError("Impossible de charger les détails du produit.");
@@ -33,7 +33,7 @@ export default function Article() {
         setLoading(false);
       }
     };
-
+  
     fetchProduct();
   }, []);
 
@@ -125,7 +125,7 @@ export default function Article() {
             </Link>
             <a
                 href={`https://wa.me/+24162787288?text=${encodeURIComponent(
-                  "Bonjour, je suis intéressé par votre produit !"
+                  `Bonjour, je suis intéressé par votre produit ! ${product.name} ${product.price}`
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
