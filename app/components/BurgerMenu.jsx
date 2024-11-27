@@ -14,7 +14,7 @@ export function BurgerMenu ({ isOpen, toggleMenu }){
         x: isOpen ? 0 : '-100%', // Déplacer l'élément de gauche à droite
       }}
       transition={{ duration: 0.5 }}
-      className="absolute top-0 left-0 w-full bg-[#3883A2] py-4 flex flex-col items-center space-y-4"
+      className=" z-50 absolute top-0 left-0 w-full bg-[#3883A2] py-4 flex flex-col items-center space-y-4"
     >
         
       {/* Bouton retour */}

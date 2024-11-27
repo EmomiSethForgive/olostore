@@ -71,7 +71,7 @@ export function Header() {
           </div>
 
           {/* Champ de recherche */}
-          <div className="relative flex max-sm:hidden items-center">
+          <div className="z-10 relative flex max-sm:hidden items-center">
             <input
               type="text"
               value={searchTerm}
@@ -91,7 +91,7 @@ export function Header() {
 
           {/* Menu burger */}
           <div
-            className="md:hidden cursor-pointer hover:scale-105 transition-transform"
+            className=" md:hidden cursor-pointer hover:scale-105 transition-transform"
             onClick={toggleMenu}
           >
             <Image
@@ -103,7 +103,7 @@ export function Header() {
           </div>
 
           {/* Menu classique (desktop) */}
-          <ul className="flex gap-10 max-sm:hidden">
+          <ul className="z-50 flex gap-10 max-sm:hidden">
             <Link
               href="/"
               className="text-white text-sm max-sm:hidden md:text-lg"
