@@ -3,7 +3,7 @@ import Image from "next/image";
 export function Apropos() {
   return (
     <div className="w-full">
-      <div className="w-[90%] m-auto flex flex-col gap-12 mb-8 items-center px-4 py-4 rounded-t-2xl  bg-gradient-to-b from-[#8BB6C9] via-[#8BB6C9] to-[#FFFFFF]">
+      <div className="w-[90%] m-auto flex flex-col gap-12 items-center px-4 py-4 rounded-t-2xl  bg-gradient-to-b from-[#8BB6C9] via-[#8BB6C9] to-[#FFFFFF]">
         <h1 className="font-bold md:text-3xl text-2xl">A propos</h1>
         {/* <div> */}
         <div className="flex w-full overflow-x-auto whitespace-nowrap gap-6 md:justify-between">

@@ -194,7 +194,7 @@ export function Section1() {
   return (
     <div className={`w-full flex flex-col gap-5 ${styles.section}`}>
       {/* hero_section */}
-      <div className="w-[90%] m-auto bg-[#3883A2] flex flex-col gap-4 md:mt-8 mt-4 pb-5 md:pb-8 pt-3 md:pt-8 rounded-3xl">
+      <div className="w-[90%] m-auto bg-[#3883A2] flex flex-col gap-4 md:mt-8 pb-5 md:pb-8 pt-3 md:pt-8 rounded-b-3xl mt-1 md:rounded-3xl">
         <div className="flex justify-around md:justify-center md:gap-12 pl-3 pt-3 items-center">
           {/* Texte */}
           <div className="flex flex-col gap-2 md:gap-6">

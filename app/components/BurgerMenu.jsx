@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 // import { PlusIcon } from "@heroicons/24/outline";
 
-const BurgerMenu = ({ isOpen, toggleMenu }) => {
+export function BurgerMenu ({ isOpen, toggleMenu }){
   return (
     <motion.ul
       initial={{ opacity: 0, x: '-100%' }} // Position initiale hors de l'écran
@@ -43,4 +43,4 @@ const BurgerMenu = ({ isOpen, toggleMenu }) => {
   );
 };
 
-export default BurgerMenu;
+// export default;

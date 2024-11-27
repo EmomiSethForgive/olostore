@@ -7,7 +7,7 @@ export function MapEmbed () {
 
   return (
     <div className="w-full">
-    <div className="w-[90%] m-auto">
+    <div className="w-[90%] m-auto mb-4">
       {/* <iframe 
         width="600"
         height="450"
